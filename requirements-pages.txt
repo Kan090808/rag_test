@@ -1,0 +1,3 @@
+# Minimal requirements for GitHub Pages build
+# Only needed for any Python scripts that might run during build
+requests>=2.25.0

@@ -27,27 +27,36 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Use minimal requirements for GitHub Pages build
+          pip install -r requirements-pages.txt
           
       - name: Create static documentation site
         run: |
           # Create a docs directory for static content
           mkdir -p docs
+          echo "Created docs directory"
           
-          # Copy template files
-          cp -r templates/* docs/ 2>/dev/null || true
+          # Copy template files with better error handling
+          if [ -d "templates" ]; then
+            cp -r templates/* docs/ 2>/dev/null || echo "Warning: Could not copy some template files"
+            echo "Copied template files"
+          else
+            echo "Warning: templates directory not found"
+          fi
           
           # Create index.html from template
           if [ -f "templates/index.html" ]; then
+            echo "Using existing template index.html"
             cp templates/index.html docs/index.html
           else
+            echo "Creating fallback index.html"
             # Create a basic index.html if template doesn't exist
             cat > docs/index.html << 'EOF'
           <!DOCTYPE html>
@@ -177,6 +186,15 @@ jobs:
           
           The RAG Agent is a Retrieval-Augmented Generation system with conversation memory and enhanced search capabilities.
           EOF
+          
+          echo "Build completed successfully"
+          ls -la docs/
+          
+      - name: Verify build output
+        run: |
+          echo "Verifying docs directory contents:"
+          find docs -type f -name "*.html" -o -name "*.md" | head -10
+          echo "Total files in docs: $(find docs -type f | wc -l)"
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
