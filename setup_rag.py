@@ -80,7 +80,8 @@ def main():
     print("1. Get your OpenRouter API key from https://openrouter.ai/")
     print("2. Copy config_template.py to config.py and add your API key")
     print("3. Update CSV_FILES and TXT_FILES arrays in config.py if needed")
-    print("4. Run: python rag_agent.py")
+    print("4. Run: python app.py (web interface) or python app.py --cli (command line)")
+    print("   Or use: python start_web.py (recommended)")
     print("="*50)
     
     # Remove embeddings.pkl after setup

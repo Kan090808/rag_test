@@ -10360,3 +10360,940 @@
   }
 }
 --------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:35:44",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:35:48",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:35:48",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:38:29",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:38:32",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:38:32",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:02",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "如何安裝",
+    "top_k": 3,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:02",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "如何安裝",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:02",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expanded",
+  "details": {
+    "original": "如何安裝",
+    "expanded": "如何安裝 更新 letstalk letstalk 更新檔 letstalk 安裝檔 安裝 letstalk letstalk 安裝包",
+    "added_terms": [
+      "更新 letstalk",
+      "letstalk 更新檔",
+      "letstalk 安裝檔",
+      "安裝 letstalk",
+      "letstalk 安裝包"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:02",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "如何安裝",
+    "expanded_query": "如何安裝 更新 letstalk letstalk 更新檔 letstalk 安裝檔 安裝 letstalk letstalk 安裝包",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 4,
+    "max_semantic_score": 0.7671926021575928,
+    "results": [
+      {
+        "similarity_score": 0.8603155612945557,
+        "question": "Letstalk iOS版本如何安裝及更新?",
+        "answer": "您可以按照以下步驟安裝或更新iOS版Letstalk： 1. 開啟您iPhone或iPad上的App Store 2. 在搜尋列輸入\"Letstalk\" 3. 找到\"Letstalk IM\"應用程式 4. 點擊應用程式旁邊的\"安裝\"按鈕(首次下載)或\"更新\"按鈕(已安裝需更新時) 5. 等待下載完成後即可使用",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8508527278900146,
+        "question": "蘋果手機如何安裝Letstalk？",
+        "answer": "蘋果手機唯一的安裝途徑，請至APP store搜尋Letstalk，並點選安裝Letstalk。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8218127369880677,
+        "question": "Windows電腦如何安裝Letstalk？",
+        "answer": "你可以通過官方網站來安裝windows版Letstalk 1. 國際用戶請訪問: https://letstalk.net/downld 2. 中國地區用戶請訪問: https://letstalkmessage.net/downld 3. 點擊「Windows」再依照系統指示完成安裝。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:05",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "如何安裝",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 3,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:05",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:05",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "如何安裝",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.8603155612945557,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:32",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "如何安裝",
+    "top_k": 3,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:32",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "如何安裝",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:32",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expanded",
+  "details": {
+    "original": "如何安裝",
+    "expanded": "如何安裝 更新 letstalk letstalk 更新檔 letstalk 安裝檔 安裝 letstalk letstalk 安裝包",
+    "added_terms": [
+      "更新 letstalk",
+      "letstalk 更新檔",
+      "letstalk 安裝檔",
+      "安裝 letstalk",
+      "letstalk 安裝包"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:32",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "如何安裝",
+    "expanded_query": "如何安裝 更新 letstalk letstalk 更新檔 letstalk 安裝檔 安裝 letstalk letstalk 安裝包",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 4,
+    "max_semantic_score": 0.7671926021575928,
+    "results": [
+      {
+        "similarity_score": 0.8603155612945557,
+        "question": "Letstalk iOS版本如何安裝及更新?",
+        "answer": "您可以按照以下步驟安裝或更新iOS版Letstalk： 1. 開啟您iPhone或iPad上的App Store 2. 在搜尋列輸入\"Letstalk\" 3. 找到\"Letstalk IM\"應用程式 4. 點擊應用程式旁邊的\"安裝\"按鈕(首次下載)或\"更新\"按鈕(已安裝需更新時) 5. 等待下載完成後即可使用",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8508527278900146,
+        "question": "蘋果手機如何安裝Letstalk？",
+        "answer": "蘋果手機唯一的安裝途徑，請至APP store搜尋Letstalk，並點選安裝Letstalk。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8218127369880677,
+        "question": "Windows電腦如何安裝Letstalk？",
+        "answer": "你可以通過官方網站來安裝windows版Letstalk 1. 國際用戶請訪問: https://letstalk.net/downld 2. 中國地區用戶請訪問: https://letstalkmessage.net/downld 3. 點擊「Windows」再依照系統指示完成安裝。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:37",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "如何安裝",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 376,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:37",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:40:37",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "如何安裝",
+    "response": "您好，關於「如何安裝Letstalk」，請依照您使用的裝置類型選擇以下方式：\n\n1. **iOS裝置（蘋果手機或平板）安裝方法：**  \n   - 開啟您的iPhone或iPad上的App Store  \n   - 在搜尋欄輸入「Letstalk」  \n   - 找到「Letstalk IM」應用程式  \n   - 點擊「安裝」按鈕（首次下載）或「更新」按鈕（若已安裝需更新）  \n   - 等待下載完成後即可使用\n\n2. **Windows電腦安裝方法：**  \n   - 國際用戶請訪問：https://letstalk.net/downld  \n   - 中國地區用戶請訪問：https://letstalkmessage.net/downld  \n   - 點擊「Windows」後依照系統提示完成安裝\n\n若您需要進一步協助，歡迎隨時告訴我！",
+    "documents_used": 3,
+    "top_similarity": 0.8603155612945557,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:50:24",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:50:28",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 13:50:28",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:08:31",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:08:35",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:08:35",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:02",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:06",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:06",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:24",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "如何安裝",
+    "top_k": 3,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:24",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "如何安裝",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:24",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expanded",
+  "details": {
+    "original": "如何安裝",
+    "expanded": "如何安裝 letstalk 安裝檔 安裝 letstalk letstalk 安裝包 更新 letstalk letstalk 更新檔",
+    "added_terms": [
+      "letstalk 安裝檔",
+      "安裝 letstalk",
+      "letstalk 安裝包",
+      "更新 letstalk",
+      "letstalk 更新檔"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:25",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "如何安裝",
+    "expanded_query": "如何安裝 letstalk 安裝檔 安裝 letstalk letstalk 安裝包 更新 letstalk letstalk 更新檔",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 4,
+    "max_semantic_score": 0.7719262838363647,
+    "results": [
+      {
+        "similarity_score": 0.8631557703018189,
+        "question": "Letstalk iOS版本如何安裝及更新?",
+        "answer": "您可以按照以下步驟安裝或更新iOS版Letstalk： 1. 開啟您iPhone或iPad上的App Store 2. 在搜尋列輸入\"Letstalk\" 3. 找到\"Letstalk IM\"應用程式 4. 點擊應用程式旁邊的\"安裝\"按鈕(首次下載)或\"更新\"按鈕(已安裝需更新時) 5. 等待下載完成後即可使用",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8377433061599732,
+        "question": "蘋果手機如何安裝Letstalk？",
+        "answer": "蘋果手機唯一的安裝途徑，請至APP store搜尋Letstalk，並點選安裝Letstalk。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.44541757106781005,
+        "question": "如何找到在Letstalk下載的檔案(安卓)?",
+        "answer": "您可以在檔案管理應用程式中查找到在Letstalk下載的檔案。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:29",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "如何安裝",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 282,
+    "context_docs_count": 3,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:29",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:29",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "如何安裝",
+    "response": "請問您是要安裝哪一種裝置上的Letstalk呢？  \n如果是iOS裝置（iPhone或iPad），您可以按照以下步驟安裝或更新Letstalk：  \n1. 開啟您iPhone或iPad上的App Store  \n2. 在搜尋列輸入\"Letstalk\"  \n3. 找到\"Letstalk IM\"應用程式  \n4. 點擊應用程式旁邊的\"安裝\"按鈕(首次下載)或\"更新\"按鈕(已安裝需更新時)  \n5. 等待下載完成後即可使用  \n\n如果是蘋果手機，唯一的安裝途徑是至App Store搜尋Letstalk，並點選安裝。  \n\n若您需要安卓裝置的安裝說明，請再告訴我喔！",
+    "documents_used": 3,
+    "top_similarity": 0.8631557703018189,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:46",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "mac",
+    "top_k": 3,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:46",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "mac",
+    "query_length": 3,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:47",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "mac",
+    "expanded_query": "mac",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "keyword_priority",
+    "keyword_matches": 3,
+    "max_semantic_score": 0.2402469515800476,
+    "results": [
+      {
+        "similarity_score": 1.0,
+        "question": "在Letstalk有限制傳送檔案的大小嗎？",
+        "answer": "* Letstalk iOS、Letstalk macOS、Letstalk Android可以傳送最大100MB的檔案 * Letstalk windows版可以傳送最大為300MB大小的檔案",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 1.0,
+        "question": "在Letstalk有限制傳送檔案的大小嗎？",
+        "answer": "* Letstalk iOS、Letstalk macOS、Letstalk Android可以傳送最大100MB的檔案 * Letstalk windows版可以傳送最大為300MB大小的檔案",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 1.0,
+        "question": "Letstalk支援哪些系統？",
+        "answer": "Letstalk 目前支援並建議使用下列作業系統的裝置： 1. iOS 14.0 以上 (iPhone / iPad) 2. Android 7.0 版本以上 3. Windows 7 以上 4. MacOS 11.5 以上",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:49",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "mac",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 187,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:49",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:49",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "mac",
+    "response": "您好，關於Letstalk在Mac上的相關資訊如下：\n\n1. Letstalk支援的Mac作業系統版本為 macOS 11.5 以上。\n2. 若您想在Mac上安裝Letstalk，請至Mac App Store搜尋「Letstalk」並進行安裝。\n3. 在Mac版Letstalk上，您可以傳送最大100MB的檔案。\n\n如果您需要更詳細的安裝步驟或其他功能說明，請告訴我喔！",
+    "documents_used": 3,
+    "top_similarity": 1.0,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:54",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "看不到對方通知",
+    "top_k": 3,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:54",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "看不到對方通知",
+    "query_length": 7,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:54",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "看不到對方通知",
+    "expanded_query": "看不到對方通知",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.7122601866722107,
+    "results": [
+      {
+        "similarity_score": 0.7122601866722107,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6949366331100464,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6949366331100464,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:58",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "看不到對方通知",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 209,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 2
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:58",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 3,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:58",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "看不到對方通知",
+    "response": "您好，關於「看不到對方通知」的問題，根據目前資料庫並無直接相關的說明。不過，若您是指對方可能封鎖您導致通知無法送達，資料庫中提到：\n\n- 如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。\n- 若您封鎖好友，您將接收不到被封鎖好友的來電或訊息。\n\n若您的問題不是上述情況，或需要更詳細協助，請您嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.7122601866722107,
+    "conversation_history_length": 3,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:59",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "看不到對方訊息",
+    "top_k": 3,
+    "conversation_history_length": 3,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:59",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "看不到對方訊息",
+    "query_length": 7,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:12:59",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "看不到對方訊息",
+    "expanded_query": "看不到對方訊息",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.7122601866722107,
+    "results": [
+      {
+        "similarity_score": 0.7122601866722107,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6949366331100464,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6949366331100464,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:02",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "看不到對方訊息",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 187,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:02",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 4,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:02",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "看不到對方訊息",
+    "response": "您好，關於「看不到對方訊息」的問題，根據目前資料庫的資訊，可能有以下幾種情況：\n\n1. 若您被對方封鎖，您仍然能傳送訊息給對方，但對方不會收到您的訊息，因此您看不到對方回覆。\n2. 若您封鎖了對方，您將無法收到被封鎖好友的訊息。\n\n若以上情況都不符合您的狀況，建議您可以嘗試重新描述問題，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得進一步協助。",
+    "documents_used": 3,
+    "top_similarity": 0.7122601866722107,
+    "conversation_history_length": 4,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:23",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "不太明白",
+    "top_k": 3,
+    "conversation_history_length": 4,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:23",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "不太明白",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:23",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "不太明白",
+    "expanded_query": "不太明白",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.4870613217353821,
+    "results": [
+      {
+        "similarity_score": 0.4870613217353821,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4301568865776062,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4252232313156128,
+        "question": "一個聊天室內的一本相簿最多可以有幾張照片？",
+        "answer": "1000張。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:25",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "不太明白",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 110,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 4
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:25",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 5,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:13:25",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "不太明白",
+    "response": "您好，請問您是對哪一部分不太明白呢？是安裝流程、通知問題，還是好友新增或驗證碼相關的說明呢？您可以告訴我更具體的疑問，我會盡力為您說明喔！如果方便，也可以嘗試用不同方式描述您的問題，或輸入「轉接真人客服」獲得進一步協助。",
+    "documents_used": 3,
+    "top_similarity": 0.4870613217353821,
+    "conversation_history_length": 5,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------

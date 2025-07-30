@@ -765,86 +765,9 @@ class RAGAgent:
         
         return response
 
-def main():
-    """Main function to run the RAG agent"""
-    
-    # Try to load configuration
-    try:
-        import config
-        OPENROUTER_API_KEY = config.OPENROUTER_API_KEY
-        MODEL_NAME = getattr(config, 'MODEL_NAME', 'anthropic/claude-3.5-haiku')
-        TOP_K_DOCUMENTS = getattr(config, 'TOP_K_DOCUMENTS', 3)
-        MAX_TOKENS = getattr(config, 'MAX_TOKENS', 1000)
-        TEMPERATURE = getattr(config, 'TEMPERATURE', 0.7)
-        LOG_FILE = getattr(config, 'LOG_FILE', 'log.txt')
-        SYSTEM_PROMPT = getattr(config, 'SYSTEM_PROMPT', '你是一個專業的客服助手。請根據以下提供的資料來回答用戶的問題。')
-        txt_files = getattr(config, 'TXT_FILES', [])
-    except ImportError:
-        print("config.py not found. Please copy config_template.py to config.py and configure your settings.")
-        return
-    
-    if OPENROUTER_API_KEY == "your-openrouter-api-key-here" or not OPENROUTER_API_KEY:
-        print("Please set your OpenRouter API key in config.py")
-        return
-    
-    agent = RAGAgent(OPENROUTER_API_KEY, MODEL_NAME, MAX_TOKENS, TEMPERATURE, LOG_FILE, SYSTEM_PROMPT)
-    agent.default_top_k = TOP_K_DOCUMENTS
-    
-    # Check if embeddings already exist
-    if not agent.load_embeddings():
-        print("Creating new embeddings...")
-        # Load TXT data
-        agent.load_multiple_files(txt_files)
-        
-        if not agent.documents:
-            print("No documents loaded. Please check your TXT files.")
-            return
-        
-        # Create embeddings
-        agent.create_embeddings()
-    
-    print("\n" + "="*50)
-    print("RAG Agent Ready! Ask me anything!")
-    print("新功能：我現在能記住我們整個對話過程！")
-    print("Type 'exit' or 'quit' to end the conversation.")
-    print("Type 'clear_history' to clear conversation history.")
-    print("Type 'show_history' to view conversation history.")
-    print("="*50 + "\n")
-    
-    # Chat loop
-    while True:
-        try:
-            user_query = input("You: ").strip()
-            
-            if user_query.lower() in ['exit', 'quit', '退出']:
-                print("Agent: 再見！感謝使用RAG Agent！")
-                break
-            
-            if user_query.lower() == 'clear_history':
-                agent.clear_conversation_history()
-                print("Agent: 對話歷史已清除！")
-                continue
-                
-            if user_query.lower() == 'show_history':
-                if agent.conversation_history or agent.conversation_summary:
-                    context = agent.get_conversation_context()
-                    print(f"\nAgent: 當前對話歷史：\n{context}\n")
-                else:
-                    print("Agent: 目前沒有對話歷史。\n")
-                continue
-            
-            if not user_query:
-                continue
-            
-            print("\nAgent: 正在搜尋相關資料並生成回答...")
-            response = agent.chat(user_query)
-            print(f"Agent: {response}\n")
-            
-        except KeyboardInterrupt:
-            print("\n\nAgent: 再見！感謝使用RAG Agent！")
-            break
-        except Exception as e:
-            print(f"Error: {e}")
-
 if __name__ == "__main__":
-    main()
+    print("⚠️  This module is now used as a library.")
+    print("🌐 To use the RAG Agent, please run the web interface:")
+    print("   python3 app.py")
+    print("📚 Or use the startup script:")
+    print("   python3 start_web.py")
