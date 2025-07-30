@@ -1,1 +1,0 @@
-Plan to simplify the rag_agent code for better readability and maintainability.
