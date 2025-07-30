@@ -173,6 +173,47 @@ def clear_history():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/change_model', methods=['POST'])
+def change_model():
+    """Change the model used by RAG agent"""
+    try:
+        data = request.get_json()
+        new_model = data.get('model_name', '').strip()
+        
+        if not new_model:
+            return jsonify({'error': 'Model name is required'}), 400
+        
+        # Validate model name
+        allowed_models = [
+            'anthropic/claude-3.5-haiku',
+            'openai/gpt-4.1',
+            'openai/gpt-4.1-mini'
+        ]
+        
+        if new_model not in allowed_models:
+            return jsonify({'error': f'Model not allowed. Available models: {", ".join(allowed_models)}'}), 400
+        
+        if not rag_agent:
+            return jsonify({'error': 'RAG Agent not initialized'}), 500
+        
+        # Change the model
+        success = rag_agent.change_model(new_model)
+        
+        if success:
+            # Update the config module's MODEL_NAME for consistency
+            config.MODEL_NAME = new_model
+            
+            return jsonify({
+                'message': f'Model changed to {new_model} successfully',
+                'new_model': new_model
+            })
+        else:
+            return jsonify({'error': 'Failed to change model'}), 500
+            
+    except Exception as e:
+        print(f"Error in change_model endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
 if __name__ == '__main__':
     import sys
     

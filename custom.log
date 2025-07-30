@@ -1,0 +1,21 @@
+=== RAG Agent Log Started ===
+
+{
+  "timestamp": "2025-07-30 15:08:29",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:08:33",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "custom-model",
+    "max_tokens": 500,
+    "temperature": 0.5
+  }
+}
+--------------------------------------------------------------------------------

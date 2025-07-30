@@ -151,6 +151,8 @@
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .control-btn {
@@ -166,6 +168,33 @@
 
         .control-btn:hover {
             background: #545b62;
+        }
+
+        .model-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .model-selector label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .model-select {
+            padding: 6px 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .model-select:focus {
+            outline: none;
+            border-color: #007bff;
         }
 
         .loading {
@@ -258,6 +287,15 @@
                 <button class="control-btn" onclick="clearHistory()">清除歷史</button>
                 <button class="control-btn" onclick="showHistory()">顯示歷史</button>
                 <button class="control-btn" onclick="refreshStatus()">刷新狀態</button>
+                
+                <div class="model-selector">
+                    <label for="modelSelect">模型:</label>
+                    <select id="modelSelect" class="model-select" onchange="changeModel()">
+                        <option value="anthropic/claude-3.5-haiku">Claude 3.5 Haiku</option>
+                        <option value="openai/gpt-4.1">GPT-4.1</option>
+                        <option value="openai/gpt-4.1-mini" selected>GPT-4.1 Mini</option>
+                    </select>
+                </div>
             </div>
             
             <form class="chat-input-form" id="chatForm">
@@ -437,12 +475,61 @@
 
                 if (response.ok) {
                     statusText.textContent = `狀態: ${data.rag_agent_initialized ? '已初始化' : '未初始化'} | 模型: ${data.model_name || 'N/A'} | 文檔數量: ${data.documents_loaded} | 對話記錄: ${data.conversation_history_length}`;
+                    
+                    // Update model selector to reflect current model
+                    const modelSelect = document.getElementById('modelSelect');
+                    if (data.model_name && modelSelect) {
+                        modelSelect.value = data.model_name;
+                    }
                 } else {
                     statusText.textContent = `狀態錯誤: ${data.error}`;
                 }
             } catch (error) {
                 statusText.textContent = '無法獲取狀態資訊';
             }
+        }
+
+        async function changeModel() {
+            const modelSelect = document.getElementById('modelSelect');
+            const selectedModel = modelSelect.value;
+
+            try {
+                statusText.textContent = '正在切換模型...';
+                
+                const response = await fetch('/change_model', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ model_name: selectedModel })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    statusText.textContent = `模型已切換至: ${selectedModel}`;
+                    // Add a message to the chat
+                    addMessage('assistant', `🔄 模型已切換至: ${getModelDisplayName(selectedModel)}`);
+                    // Refresh status to update display
+                    setTimeout(refreshStatus, 1000);
+                } else {
+                    statusText.textContent = `切換模型失敗: ${data.error}`;
+                    addErrorMessage(data.error || '切換模型失敗');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                statusText.textContent = '切換模型時發生網路錯誤';
+                addErrorMessage('網路連接錯誤');
+            }
+        }
+
+        function getModelDisplayName(modelName) {
+            const modelNames = {
+                'anthropic/claude-3.5-haiku': 'Claude 3.5 Haiku',
+                'openai/gpt-4.1': 'GPT-4.1',
+                'openai/gpt-4.1-mini': 'GPT-4.1 Mini'
+            };
+            return modelNames[modelName] || modelName;
         }
 
         // Auto-refresh status every 30 seconds

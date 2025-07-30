@@ -11297,3 +11297,5128 @@
   }
 }
 --------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:30",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "你好",
+    "top_k": 3,
+    "conversation_history_length": 5,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:30",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "你好",
+    "query_length": 2,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:30",
+  "type": "SEARCH",
+  "operation": "Broad search completed",
+  "details": {
+    "query": "你好",
+    "results_count": 6,
+    "search_type": "broad"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:32",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "你好",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 62,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 5
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:32",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 6,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:32",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "你好",
+    "response": "您好！請問有什麼關於Letstalk的問題需要幫忙呢？您可以告訴我更具體的需求或疑問，我會根據資料庫提供準確的資訊協助您喔！",
+    "documents_used": 3,
+    "top_similarity": 1.0,
+    "conversation_history_length": 6,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:47",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "如何註冊",
+    "top_k": 3,
+    "conversation_history_length": 6,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:47",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "如何註冊",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:48",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "如何註冊",
+    "expanded_query": "如何註冊",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 1,
+    "max_semantic_score": 0.5751136541366577,
+    "results": [
+      {
+        "similarity_score": 0.4,
+        "question": "如何註冊新的Letstalk帳號？",
+        "answer": "1. 點按Letstalk首頁下方的「開始」按鈕 2. 輸入您的電話號碼 3. 接收簡訊驗證碼，即可註冊一個新的Letstalk帳號",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3450681924819946,
+        "question": "已讀資訊功能是什麼？",
+        "answer": "查看訊息被讀取狀態。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3249345302581787,
+        "question": "如何查看訊息的已讀資訊?",
+        "answer": "對訊息長按後跳出選單點擊「已讀資訊」。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:50",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "如何註冊",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 140,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 6
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:50",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 7,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:33:50",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "如何註冊",
+    "response": "您好，關於如何註冊新的Letstalk帳號，您可以依照以下步驟操作：\n\n1. 點按Letstalk首頁下方的「開始」按鈕  \n2. 輸入您的電話號碼  \n3. 接收簡訊驗證碼，輸入驗證碼後即可完成註冊  \n\n如果您在註冊過程中遇到任何問題，歡迎隨時告訴我，我會為您提供進一步協助！",
+    "documents_used": 3,
+    "top_similarity": 0.4,
+    "conversation_history_length": 7,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:08",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "發生未知的錯誤",
+    "top_k": 3,
+    "conversation_history_length": 7,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:08",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "發生未知的錯誤",
+    "query_length": 7,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:08",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "發生未知的錯誤",
+    "expanded_query": "發生未知的錯誤",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 2,
+    "max_semantic_score": 0.7019979357719421,
+    "results": [
+      {
+        "similarity_score": 0.7889191627502441,
+        "question": "提示登入時發生未知的錯誤，請再試一次怎麼辦?",
+        "answer": "請確認Letstalk是否需要更新，網路連線是否順暢。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7852959990501405,
+        "question": "註冊/登入遇到系統提示發生未知的錯誤，請再試一次怎麼辦?",
+        "answer": "* 確認您的網路連線是否順暢。 * 確認您的Letstalk版本是否保持在最新的版本。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.42119876146316526,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:12",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "發生未知的錯誤",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 148,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:12",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 8,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:12",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "發生未知的錯誤",
+    "response": "您好，關於您遇到「發生未知的錯誤」的問題，根據資料庫的資訊，建議您可以嘗試以下幾點：\n\n1. 確認您的網路連線是否順暢。  \n2. 確認您的Letstalk應用程式是否已更新到最新版本。\n\n若以上方法仍無法解決問題，您可以嘗試重新啟動應用程式或裝置，或在聊天室輸入「轉接真人客服」獲得進一步協助。",
+    "documents_used": 3,
+    "top_similarity": 0.7889191627502441,
+    "conversation_history_length": 8,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:35",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "如何備份",
+    "top_k": 3,
+    "conversation_history_length": 8,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:35",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "如何備份",
+    "query_length": 4,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:35",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "如何備份",
+    "expanded_query": "如何備份",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 2,
+    "max_semantic_score": 0.5751136541366577,
+    "results": [
+      {
+        "similarity_score": 0.4,
+        "question": "iPhone手機、Android手機如何備份Letstalk聊天記錄？",
+        "answer": "1. 點按「設定」 2. 點按「聊天及備份」 3. 點按「Letstalk 備份」 4. 點按「立即備份」 5. 設定備份密碼後請再點一次「立即備份」 Letstalk備份頁面將會顯示您備份的時間。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4,
+        "question": "iPhone手機、Android手機如何備份Letstalk聊天記錄？",
+        "answer": "1. 點按「設定」 2. 點按「聊天及備份」 3. 點按「Letstalk 備份」 4. 點按「立即備份」 5. 設定備份密碼後請再點一次「立即備份」 Letstalk備份頁面將會顯示您備份的時間。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3450681924819946,
+        "question": "已讀資訊功能是什麼？",
+        "answer": "查看訊息被讀取狀態。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:40",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "如何備份",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 190,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 8
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:40",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 9,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:40",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "如何備份",
+    "response": "您好，關於如何備份Letstalk聊天記錄，您可以依照以下步驟操作：\n\n1. 點按「設定」  \n2. 點按「聊天及備份」  \n3. 點按「Letstalk 備份」  \n4. 點按「立即備份」  \n5. 設定備份密碼後，請再點一次「立即備份」  \n\n完成後，Letstalk備份頁面會顯示您備份的時間，代表備份已成功。\n\n如果在備份過程中有任何問題，歡迎隨時告訴我，我會協助您解決！",
+    "documents_used": 3,
+    "top_similarity": 0.4,
+    "conversation_history_length": 9,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:50",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "看不到時刻",
+    "top_k": 3,
+    "conversation_history_length": 9,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:50",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "看不到時刻",
+    "query_length": 5,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:51",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "看不到時刻",
+    "expanded_query": "看不到時刻",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:53",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "看不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 112,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 9
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:53",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 10,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:34:53",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "看不到時刻",
+    "response": "您好，關於「看不到時刻」的問題，資料庫中目前沒有相關的具體說明。\n\n很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 10,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:18",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "沒有時刻功能",
+    "top_k": 3,
+    "conversation_history_length": 10,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:18",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "沒有時刻功能",
+    "query_length": 6,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:19",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "沒有時刻功能",
+    "expanded_query": "沒有時刻功能",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.7104296088218689,
+    "results": [
+      {
+        "similarity_score": 0.7104296088218689,
+        "question": "廣播訊息有限制時間頻率嗎？",
+        "answer": "傳送廣播訊息後需等待一分鐘才能再次傳送廣播訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6987788081169128,
+        "question": "何謂端對端加密？",
+        "answer": "只有您與訊息接收者才擁有可以解鎖訊息的安全密鑰。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6686172485351562,
+        "question": "Letstalk有付費服務嗎？",
+        "answer": "Letstalk所有服務目前都是免費的。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:21",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "沒有時刻功能",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 113,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:21",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 11,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:52:21",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "沒有時刻功能",
+    "response": "您好，關於「沒有時刻功能」的問題，資料庫中目前沒有相關的具體說明。\n\n很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.7104296088218689,
+    "conversation_history_length": 11,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:35",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "無法傳圖片",
+    "top_k": 3,
+    "conversation_history_length": 11,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:35",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "無法傳圖片",
+    "query_length": 5,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:35",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "無法傳圖片",
+    "expanded_query": "無法傳圖片",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.7826687693595886,
+    "results": [
+      {
+        "similarity_score": 0.7826687693595886,
+        "question": "為何訊息無法編輯了？",
+        "answer": "傳送時間超過24小時的訊息無法編輯。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7315731644630432,
+        "question": "我被詐騙了怎麼辦？",
+        "answer": "如果您遇到疑似詐騙的情況，建議您盡快向相關執法單位報案。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7315731644630432,
+        "question": "我被詐騙了怎麼辦？",
+        "answer": "如果您遇到疑似詐騙的情況，建議您盡快向相關執法單位報案。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:38",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "無法傳圖片",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 112,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 11
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:38",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 12,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 14:54:38",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "無法傳圖片",
+    "response": "您好，關於「無法傳圖片」的問題，資料庫中目前沒有相關的具體說明。\n\n很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.7826687693595886,
+    "conversation_history_length": 12,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:06:42",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:06:46",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:08:33",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:08:36",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": null,
+    "max_tokens": null,
+    "temperature": null
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:12:55",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 3,
+    "conversation_history_length": 12,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:12:55",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:12:55",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 3,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:00",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 112,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 12
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:00",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 13,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:00",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "您好，關於「找不到時刻」的問題，資料庫中目前沒有相關的具體說明。\n\n很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 3,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 13,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:05",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "時刻",
+    "top_k": 3,
+    "conversation_history_length": 13,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:05",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "時刻",
+    "query_length": 2,
+    "top_k": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:05",
+  "type": "SEARCH",
+  "operation": "Broad search completed",
+  "details": {
+    "query": "時刻",
+    "results_count": 6,
+    "search_type": "broad"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:12",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 185,
+    "context_docs_count": 3,
+    "has_conversation_history": true,
+    "conversation_history_length": 13
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:12",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 14,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:13:12",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "時刻",
+    "response": "您好，關於「時刻」功能的問題，資料庫中有以下說明：\n\n- 「時刻」功能僅開放部分國家使用，因此若您的「我的」頁面沒有「時刻」功能，可能是因為您所在的國家尚未開放此功能。\n- 若您想刪除非好友的時刻內容，可以將該好友封鎖，封鎖後該非好友的時刻內容將會被刪除。\n- 分享聊天室貼文時，可以點選貼文下方「箭頭往外」的按鈕來分享。\n\n如果您對時刻功能還有其他疑問，歡迎繼續詢問！",
+    "documents_used": 3,
+    "top_similarity": 1.0,
+    "conversation_history_length": 14,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:26",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:29",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:29",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:46",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1-mini",
+    "new_model": "anthropic/claude-3.5-haiku"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:52",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:52",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:53",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:56",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:56",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:17:56",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:00",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:18:00"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:07",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:07",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:07",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:09",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:09",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:09",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:11",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:11",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:11",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:13",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:13",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:13",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:17",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "anthropic/claude-3.5-haiku",
+    "new_model": "openai/gpt-4.1"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:18",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:18",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:18",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:19",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 2
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:19",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 3,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:19",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 3,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:22",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 3,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:22",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:22",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:23",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 3
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:23",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 4,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:23",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 4,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:25",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1",
+    "new_model": "openai/gpt-4.1-mini"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:26",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 4,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:26",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:26",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:29",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 4
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:29",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 5,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:29",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 5,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:30",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 5,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:30",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:30",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.6576938629150391,
+    "results": [
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6576938629150391,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6019684076309204,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6005208492279053,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5819957256317139,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5815314054489136,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5814505815505981,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.580316960811615,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5776464939117432,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:33",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 5
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:33",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 6,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:33",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.6576938629150391,
+    "conversation_history_length": 6,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:37",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到“時刻”",
+    "top_k": 10,
+    "conversation_history_length": 6,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:37",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到“時刻”",
+    "query_length": 7,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:37",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到“時刻”",
+    "expanded_query": "找不到“時刻”",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.635661244392395,
+    "results": [
+      {
+        "similarity_score": 0.635661244392395,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.635661244392395,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6102151870727539,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6010589599609375,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5910494327545166,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.585991621017456,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5718998908996582,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5718998908996582,
+        "question": "如何找尋群組？",
+        "answer": "Letstalk的群組目前不是公開可被搜尋的。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5709824562072754,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.5609327554702759,
+        "question": "被好友封鎖可以傳送訊息嗎？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:39",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到“時刻”",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 6
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:39",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 7,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:18:39",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到“時刻”",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.635661244392395,
+    "conversation_history_length": 7,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:27",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "top_k": 10,
+    "conversation_history_length": 7,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:27",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "query_length": 24,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:28",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "expanded_query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "semantic_only",
+    "keyword_matches": 0,
+    "max_semantic_score": 0.7272497415542603,
+    "results": [
+      {
+        "similarity_score": 0.7272497415542603,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7200580835342407,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7161860466003418,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7121371030807495,
+        "question": "被好友封鎖可以傳送訊息嗎？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.7022830247879028,
+        "question": "傳送照片會被Letstalk壓縮嗎?",
+        "answer": "會，若您不希望傳送的照片被系統壓縮，請以檔案形式傳送。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.690996527671814,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.690996527671814,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6850166320800781,
+        "question": "朋友註冊Letstalk帳號收不到簡訊驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。確認陌生簡訊，國外簡訊不受阻擋。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6726466417312622,
+        "question": "註冊手機號碼遺失了不使用了怎麼辦?",
+        "answer": "若您註冊的手機號碼已不再使用，您可以使用LetstalkID/Email+密碼來登入您的帳號。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6512123942375183,
+        "question": "Letstalk APP能不能在模擬器上執行？",
+        "answer": "很抱歉，基於資訊安全架構考量，Letstalk不支援任何模擬器環境的執行。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:30",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:30",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 8,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:22:30",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "啊啊啊啊啊啊啊啊啊啊收不到通知啊啊啊啊啊啊啊啊啊",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.7272497415542603,
+    "conversation_history_length": 8,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:27:50",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:27:53",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:27:53",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:01",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1-mini",
+    "new_model": "anthropic/claude-3.5-haiku"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:05",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:06",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:10",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 114,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:10",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:10",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "明白了。我已經仔細閱讀了關於Letstalk「時刻」功能的資料庫，並準備根據使用者的問題提供精確的回覆。我將嚴格遵守您提供的4項原則，特別是使用相同語系回覆和只回答Letstalk相關問題。如果您有任何具體問題，我很樂意幫助您。",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:19",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:25",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 257,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:25",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:25",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "根據您的問題「找不到時刻」，我可以解釋幾個可能的原因：\n\n1. 功能地區限制\n「時刻」功能並非在所有國家都開放。Letstalk根據您註冊時的電話號碼國碼來判斷是否提供此功能。\n\n2. 檢查方法\n- 請確認您的Letstalk應用程式是最新版本\n- 查看「我的」頁面是否有「時刻」選項\n- 檢查您的電話號碼註冊國家是否支援此功能\n\n3. 建議\n如果確實找不到時刻功能，您可以：\n- 更新應用程式\n- 檢查帳號設定\n- 在「設定」>「個人資訊」中查看註冊號碼\n\n若仍有疑問，建議直接聯繫Letstalk客服協助解決。",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:33",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:28:33"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:37",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:40",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 140,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:40",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:40",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "我已了解並準備根據您的要求提供Letstalk相關的專業服務。我將:\n1. 使用用戶詢問的語言回覆\n2. 根據已提供的資料庫精準回答\n3. 若無法找到答案,將使用標準的客服回覆\n4. 僅回答Letstalk相關問題\n\n我已準備好為您服務,請問您有什麼關於Letstalk的問題嗎?",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:50",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "anthropic/claude-3.5-haiku",
+    "new_model": "openai/gpt-4.1"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:51",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:28:51"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:54",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:56",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 131,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:56",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:28:56",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk會根據您註冊時使用的電話號碼國碼來判斷您的國家，若您的電話號碼不屬於目前支援此功能的國家，「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:06",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1",
+    "new_model": "openai/gpt-4.1-mini"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:06",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:29:06"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:10",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:13",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 149,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:13",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:13",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk會根據您註冊時所使用的電話號碼國碼來判斷您的國家，若您的電話號碼不屬於支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊，確認是否符合使用「時刻」功能的條件。",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "無法傳送圖片",
+    "top_k": 10,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "無法傳送圖片",
+    "query_length": 6,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "無法",
+    "expanded_terms": [
+      "不能",
+      "不會",
+      "無法使用",
+      "失效",
+      "故障"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "無法傳送圖片",
+    "expanded": "無法傳送圖片 失效 無法使用 故障 不能 不會",
+    "added_terms": [
+      "失效",
+      "無法使用",
+      "故障",
+      "不能",
+      "不會"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "無法傳送圖片",
+    "extracted_keywords": [
+      "傳送圖片"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "無法傳送圖片",
+    "extracted_keywords": [
+      "傳送圖片"
+    ],
+    "matches_found": 21,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:31",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "無法傳送圖片",
+    "expanded_query": "無法傳送圖片 失效 無法使用 故障 不能 不會",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 20,
+    "max_semantic_score": 0.7774887084960938,
+    "results": [
+      {
+        "similarity_score": 0.46649322509765623,
+        "question": "為什麼無法(不能)轉傳訊息?",
+        "answer": "*  確認您所轉傳的訊息是否已超過有效期限，檔案類型的訊息30天以上無法轉傳，文字訊息則沒有轉傳有效期限。 *  確認您所要轉傳的訊息是否為閱後即焚訊息，閱後即焚訊息沒有支援轉傳功能",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.44370456933975216,
+        "question": "無法收到Letstalk的提醒（不開啟Letstalk就無法收到提醒）？",
+        "answer": "若已完成通知設定卻無法收到提醒，或不開啟Letstalk就無法收到提醒，請嘗試確認低耗電模式、休眠模式、允許在背景使用行動數據等設定，將可能改善狀況。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.42730329036712644,
+        "question": "為何訊息無法編輯了？",
+        "answer": "傳送時間超過24小時的訊息無法編輯。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.41712466478347776,
+        "question": "無法註冊怎麼辦?",
+        "answer": "* 國碼或電話號碼輸入錯誤。 * 若使用剛刪除Letstalk帳號註冊用的電話號碼，這支電話號碼需等待三十天才可以重新註冊。 * Letstalk版本較舊須進行更新。 * 網路連線異常，請確認網路連線是否順暢。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40790405273437497,
+        "question": "無法新增好友怎麼辦?",
+        "answer": "請確認新增好友是否過於頻繁。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4049305200576782,
+        "question": "為什麼密碼無法變更？",
+        "answer": "請確認您登入的Letstalk帳號為主帳號不是授權帳號，主帳號才能變更帳號的隱私資訊。 快捷功能設定",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3976721405982971,
+        "question": "照片已過下載期限，無法讀取怎麼辦?",
+        "answer": "如果照片已過下載期限，可能就無法查看或是下載，若來不及下載可以請好友再發送一次，或是確認其他地方是否已下載的檔案。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3967941999435425,
+        "question": "群組無法新增群組成員怎麼辦?",
+        "answer": "您可以詢問管理員是否有開啟新增成員的權限。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:36",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "無法傳送圖片",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 225,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:36",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:36",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "無法傳送圖片",
+    "response": "您好，若您無法傳送圖片，建議您確認以下幾點：\n\n1. 傳送的圖片是否已超過有效期限？檔案類型的訊息若超過30天將無法轉傳或再次發送。\n2. 您傳送的圖片是否為閱後即焚訊息？這類訊息不支援轉傳或再次發送功能。\n3. 請確認您的網路連線是否穩定，因網路異常也可能導致圖片無法傳送。\n4. 也可以嘗試重新啟動Letstalk應用程式，或更新至最新版本。\n\n若以上方式仍無法解決問題，建議您嘗試用不同方式重新描述問題，或輸入「轉接真人客服」以獲取進一步協助。",
+    "documents_used": 10,
+    "top_similarity": 0.46649322509765623,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:55",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:29:55"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "無法發送圖片",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "無法發送圖片",
+    "query_length": 6,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "無法",
+    "expanded_terms": [
+      "不能",
+      "不會",
+      "無法使用",
+      "失效",
+      "故障"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "無法發送圖片",
+    "expanded": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "added_terms": [
+      "失效",
+      "無法使用",
+      "故障",
+      "不能",
+      "不會"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "matches_found": 7,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:29:59",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "無法發送圖片",
+    "expanded_query": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 7,
+    "max_semantic_score": 0.7774887084960938,
+    "results": [
+      {
+        "similarity_score": 0.637672140598297,
+        "question": "照片已過下載期限，無法讀取怎麼辦?",
+        "answer": "如果照片已過下載期限，可能就無法查看或是下載，若來不及下載可以請好友再發送一次，或是確認其他地方是否已下載的檔案。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.46649322509765623,
+        "question": "為什麼無法(不能)轉傳訊息?",
+        "answer": "*  確認您所轉傳的訊息是否已超過有效期限，檔案類型的訊息30天以上無法轉傳，文字訊息則沒有轉傳有效期限。 *  確認您所要轉傳的訊息是否為閱後即焚訊息，閱後即焚訊息沒有支援轉傳功能",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.44370456933975216,
+        "question": "無法收到Letstalk的提醒（不開啟Letstalk就無法收到提醒）？",
+        "answer": "若已完成通知設定卻無法收到提醒，或不開啟Letstalk就無法收到提醒，請嘗試確認低耗電模式、休眠模式、允許在背景使用行動數據等設定，將可能改善狀況。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.42730329036712644,
+        "question": "為何訊息無法編輯了？",
+        "answer": "傳送時間超過24小時的訊息無法編輯。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.41712466478347776,
+        "question": "無法註冊怎麼辦?",
+        "answer": "* 國碼或電話號碼輸入錯誤。 * 若使用剛刪除Letstalk帳號註冊用的電話號碼，這支電話號碼需等待三十天才可以重新註冊。 * Letstalk版本較舊須進行更新。 * 網路連線異常，請確認網路連線是否順暢。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40790405273437497,
+        "question": "無法新增好友怎麼辦?",
+        "answer": "請確認新增好友是否過於頻繁。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4049305200576782,
+        "question": "為什麼密碼無法變更？",
+        "answer": "請確認您登入的Letstalk帳號為主帳號不是授權帳號，主帳號才能變更帳號的隱私資訊。 快捷功能設定",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3967941999435425,
+        "question": "群組無法新增群組成員怎麼辦?",
+        "answer": "您可以詢問管理員是否有開啟新增成員的權限。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:02",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "無法發送圖片",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:02",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:02",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "無法發送圖片",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.637672140598297,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "無法發送圖片",
+    "top_k": 10,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "無法發送圖片",
+    "query_length": 6,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "無法",
+    "expanded_terms": [
+      "不能",
+      "不會",
+      "無法使用",
+      "失效",
+      "故障"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "無法發送圖片",
+    "expanded": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "added_terms": [
+      "失效",
+      "無法使用",
+      "故障",
+      "不能",
+      "不會"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "matches_found": 7,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:13",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "無法發送圖片",
+    "expanded_query": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 7,
+    "max_semantic_score": 0.7774887084960938,
+    "results": [
+      {
+        "similarity_score": 0.637672140598297,
+        "question": "照片已過下載期限，無法讀取怎麼辦?",
+        "answer": "如果照片已過下載期限，可能就無法查看或是下載，若來不及下載可以請好友再發送一次，或是確認其他地方是否已下載的檔案。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.46649322509765623,
+        "question": "為什麼無法(不能)轉傳訊息?",
+        "answer": "*  確認您所轉傳的訊息是否已超過有效期限，檔案類型的訊息30天以上無法轉傳，文字訊息則沒有轉傳有效期限。 *  確認您所要轉傳的訊息是否為閱後即焚訊息，閱後即焚訊息沒有支援轉傳功能",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.44370456933975216,
+        "question": "無法收到Letstalk的提醒（不開啟Letstalk就無法收到提醒）？",
+        "answer": "若已完成通知設定卻無法收到提醒，或不開啟Letstalk就無法收到提醒，請嘗試確認低耗電模式、休眠模式、允許在背景使用行動數據等設定，將可能改善狀況。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.42730329036712644,
+        "question": "為何訊息無法編輯了？",
+        "answer": "傳送時間超過24小時的訊息無法編輯。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.41712466478347776,
+        "question": "無法註冊怎麼辦?",
+        "answer": "* 國碼或電話號碼輸入錯誤。 * 若使用剛刪除Letstalk帳號註冊用的電話號碼，這支電話號碼需等待三十天才可以重新註冊。 * Letstalk版本較舊須進行更新。 * 網路連線異常，請確認網路連線是否順暢。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40790405273437497,
+        "question": "無法新增好友怎麼辦?",
+        "answer": "請確認新增好友是否過於頻繁。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4049305200576782,
+        "question": "為什麼密碼無法變更？",
+        "answer": "請確認您登入的Letstalk帳號為主帳號不是授權帳號，主帳號才能變更帳號的隱私資訊。 快捷功能設定",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3967941999435425,
+        "question": "群組無法新增群組成員怎麼辦?",
+        "answer": "您可以詢問管理員是否有開啟新增成員的權限。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:15",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "無法發送圖片",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 78,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:15",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:15",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "無法發送圖片",
+    "response": "很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.637672140598297,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "added_terms": [
+      "不存在",
+      "我的時刻",
+      "看不到",
+      "沒有時刻",
+      "時刻消失",
+      "無法找到",
+      "沒有",
+      "時刻功能",
+      "分享時刻",
+      "時刻內容",
+      "時刻貼文",
+      "時刻不見",
+      "為什麼沒有時刻",
+      "不見了",
+      "消失",
+      "時刻不可見",
+      "時刻頁面",
+      "發布時刻",
+      "時刻在哪裡",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:29",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 不存在 我的時刻 看不到 沒有時刻 時刻消失 無法找到 沒有 時刻功能 分享時刻 時刻內容 時刻貼文 時刻不見 為什麼沒有時刻 不見了 消失 時刻不可見 時刻頁面 發布時刻 時刻在哪裡 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.7236000299453735,
+    "results": [
+      {
+        "similarity_score": 0.8953234362602234,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8897801685333251,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8757660913467407,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:34",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 190,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 2
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:34",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 3,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:34",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk會根據您註冊時使用的電話號碼國碼來判斷您的國家，若您的電話號碼不屬於支援此功能的國家，「時刻」功能將不會出現在您的應用程式介面中。\n\n您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊，確認是否符合支援「時刻」功能的國家資格。若有需要，您也可以嘗試使用其他電話號碼重新註冊，以取得「時刻」功能的使用權限。",
+    "documents_used": 10,
+    "top_similarity": 0.8953234362602234,
+    "conversation_history_length": 3,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:42",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1-mini",
+    "new_model": "anthropic/claude-3.5-haiku"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:42",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:30:42"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "無法發送圖片",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "無法發送圖片",
+    "query_length": 6,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "無法",
+    "expanded_terms": [
+      "不能",
+      "不會",
+      "無法使用",
+      "失效",
+      "故障"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "無法發送圖片",
+    "expanded": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "added_terms": [
+      "失效",
+      "無法使用",
+      "故障",
+      "不能",
+      "不會"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:46",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "無法發送圖片",
+    "extracted_keywords": [
+      "發送圖片"
+    ],
+    "matches_found": 7,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:47",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "無法發送圖片",
+    "expanded_query": "無法發送圖片 失效 無法使用 故障 不能 不會",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 7,
+    "max_semantic_score": 0.7774887084960938,
+    "results": [
+      {
+        "similarity_score": 0.637672140598297,
+        "question": "照片已過下載期限，無法讀取怎麼辦?",
+        "answer": "如果照片已過下載期限，可能就無法查看或是下載，若來不及下載可以請好友再發送一次，或是確認其他地方是否已下載的檔案。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.46649322509765623,
+        "question": "為什麼無法(不能)轉傳訊息?",
+        "answer": "*  確認您所轉傳的訊息是否已超過有效期限，檔案類型的訊息30天以上無法轉傳，文字訊息則沒有轉傳有效期限。 *  確認您所要轉傳的訊息是否為閱後即焚訊息，閱後即焚訊息沒有支援轉傳功能",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.44370456933975216,
+        "question": "無法收到Letstalk的提醒（不開啟Letstalk就無法收到提醒）？",
+        "answer": "若已完成通知設定卻無法收到提醒，或不開啟Letstalk就無法收到提醒，請嘗試確認低耗電模式、休眠模式、允許在背景使用行動數據等設定，將可能改善狀況。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.42730329036712644,
+        "question": "為何訊息無法編輯了？",
+        "answer": "傳送時間超過24小時的訊息無法編輯。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.41712466478347776,
+        "question": "無法註冊怎麼辦?",
+        "answer": "* 國碼或電話號碼輸入錯誤。 * 若使用剛刪除Letstalk帳號註冊用的電話號碼，這支電話號碼需等待三十天才可以重新註冊。 * Letstalk版本較舊須進行更新。 * 網路連線異常，請確認網路連線是否順暢。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40790405273437497,
+        "question": "無法新增好友怎麼辦?",
+        "answer": "請確認新增好友是否過於頻繁。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4049305200576782,
+        "question": "為什麼密碼無法變更？",
+        "answer": "請確認您登入的Letstalk帳號為主帳號不是授權帳號，主帳號才能變更帳號的隱私資訊。 快捷功能設定",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.39823347330093384,
+        "question": "如何知道自己被封鎖？",
+        "answer": "目前Letstalk無法直接讓您知道您被好友封鎖，但您可以透過幾個跡象來知道，比如對方許久未讀未回您訊息或是未接您電話。請注意，這些跡象並不一定意味著你被封鎖，也可能是由於其他原因，如網路問題或對方更改了隱私設定。如果你真的懷疑被封鎖，最好的方法是直接透過其他途徑與對方溝通。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.3967941999435425,
+        "question": "群組無法新增群組成員怎麼辦?",
+        "answer": "您可以詢問管理員是否有開啟新增成員的權限。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:52",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "無法發送圖片",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 129,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:52",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:30:52",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "無法發送圖片",
+    "response": "根據目前的資料庫，對於「無法發送圖片」這個問題，資料庫中並沒有直接的解答。因此，我將依照規定回覆：\n\n很抱歉，阿萊Eli 可能無法完全理解您的問題。您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.637672140598297,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:32",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:31:32"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "cannot find moment",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "cannot find moment",
+    "query_length": 18,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "QUERY_EXPANSION",
+  "operation": "No expansion applied",
+  "details": {
+    "original": "cannot find moment",
+    "reason": "No matching expansion rules found"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "cannot find moment",
+    "extracted_keywords": [
+      "cannot",
+      "find",
+      "moment"
+    ],
+    "extraction_method": "standard"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "cannot find moment",
+    "extracted_keywords": [
+      "cannot",
+      "find",
+      "moment"
+    ],
+    "matches_found": 44,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:42",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "cannot find moment",
+    "expanded_query": "cannot find moment",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "keyword_priority",
+    "keyword_matches": 20,
+    "max_semantic_score": 0.23365449905395508,
+    "results": [
+      {
+        "similarity_score": 0.6,
+        "question": "手機版Letstalk通知有幾種鈴聲?",
+        "answer": "* iOS系統系統手機可以設定5種鈴聲。分別是閃爍、陽光、簡約、水流、門鈴。 * Android系統手機依據品牌的不同可以設定較多種特色鈴聲。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "Letstalk iOS版本如何安裝及更新?",
+        "answer": "您可以按照以下步驟安裝或更新iOS版Letstalk： 1. 開啟您iPhone或iPad上的App Store 2. 在搜尋列輸入\"Letstalk\" 3. 找到\"Letstalk IM\"應用程式 4. 點擊應用程式旁邊的\"安裝\"按鈕(首次下載)或\"更新\"按鈕(已安裝需更新時) 5. 等待下載完成後即可使用",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "在Letstalk有限制傳送檔案的大小嗎？",
+        "answer": "* Letstalk iOS、Letstalk macOS、Letstalk Android可以傳送最大100MB的檔案 * Letstalk windows版可以傳送最大為300MB大小的檔案",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "為什麼Android手機安裝Letstalk有風險提示？",
+        "answer": "若您使用的是中國手機有機率看到這個提示，看到這個提示並不代表使用 Letstalk 具有風險。由於網路上存在大量仿冒 Letstalk 的應用程式，而這些應用的檔案名稱可能與官方版本相同，導致某些病毒資料庫誤判正版 Letstalk 為危險軟體。請確保您的下載來源為官方管道，確認無誤後，您可以將其加入白名單，以確保正常使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "要怎麼檢測我現在用的是官方版？",
+        "answer": "要檢測您目前使用的是否為Letstalk官方版本，您可以遵循以下步驟： 1. 確認下載來源：請確保您是從官方管道下載的Letstalk，如App Store（iOS）、Google Play（Android）或Letstalk官方網站（ https://letstalk.net/ ）。 2. 檢查版本號：進入Letstalk應用程式，點選「設定」>「關於Letstalk」，查看當前版本號碼。您可以將此版本號與官方網站或應用商店上的最新版本進行比對。 3. 更新檢查：如果應用內提示有更新，請務必更新到最新版本。官方版本通常會定期推送更新。 4. 功能完整性：確保所有功能都能正常使用，非官方版本可能會缺少某些功能或出現異常。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "在Letstalk有限制傳送檔案的大小嗎？",
+        "answer": "* Letstalk iOS、Letstalk macOS、Letstalk Android可以傳送最大100MB的檔案 * Letstalk windows版可以傳送最大為300MB大小的檔案",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "如何在Letstalk看板中搜尋特定卡片？",
+        "answer": "搜尋卡片方式：進入看板頁面後，點選上方的「🔍」搜尋圖示，開啟搜尋功能。您可依卡片標題、執行者或標籤等條件進行搜尋。特別提示：搜尋介面下方有「符合任一項條件」開關，開啟此功能後會顯示符合任何一個搜尋條件的卡片，大幅提高搜尋結果的範圍，更容易找到您需要的卡片。 介面與個人化 (Interface & Personalization)",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "Letstalk 安全性如何？",
+        "answer": "Letstalk 採用多層次加密機制，無論在傳送或儲存的狀態，都能保障您的資料與訊息安全： 1. 採用NIST公布之抗量子加密標準FIPS 203的演算法ML-KEM，搭配Curve25519 ECDH混合加密。 2. 訊息使用 AES 256 的加密方式，並且每個訊息使用的密鑰都不同。 3. 所有的訊息密鑰都有使用次數與時效限制。 4. 訊息密鑰使用 RSA 的方式加密。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "Letstalk 是否支援抗量子加密技術？",
+        "answer": "是的 ，Letstalk採用抗量子技術，使用NIST公布之抗量子加密標準FIPS 203中的 ML-KEM演算法 ，結合 Curve25519 ECDH 進行混合加密。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.6,
+        "question": "在Letstalk通話是否也安全？",
+        "answer": "視訊與語音通話也採用端對端加密技術，限制並保障語音通話的安全。 位置與連結功能 (Location & Connection Features)",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:46",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "cannot find moment",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 148,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:46",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:31:46",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "cannot find moment",
+    "response": "我理解了您的要求。我已準備好根據提供的資料庫，用專業且準確的方式回答Letstalk相關的問題。我會確保:\n1. 使用用戶的語言回覆\n2. 僅回答Letstalk相關問題\n3. 若無法找到答案,會使用標準的客服回覆\n4. 提供準確且有幫助的資訊\n\n請問您有什麼關於Letstalk的問題需要了解?",
+    "documents_used": 10,
+    "top_similarity": 0.6,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------

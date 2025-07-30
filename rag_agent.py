@@ -8,29 +8,30 @@ from typing import List, Dict, Any, Optional
 import pickle
 import logging
 from datetime import datetime
+import config
 
 class RAGAgent:
-    def __init__(self, openrouter_api_key: str, model_name: str = "anthropic/claude-3.5-haiku", 
-                 max_tokens: int = 1000, temperature: float = 0.7, log_file: str = "log.txt",
-                 system_prompt: str = "你是一個專業的客服助手。請根據以下提供的資料來回答用戶的問題。"):
+    def __init__(self, openrouter_api_key: str, model_name: Optional[str] = None, 
+                 max_tokens: Optional[int] = None, temperature: Optional[float] = None, log_file: Optional[str] = None,
+                 system_prompt: Optional[str] = None):
         """
         Initialize the RAG Agent
         
         Args:
             openrouter_api_key: OpenRouter API key
-            model_name: Model to use (default: Claude 3.5 Haiku)
-            max_tokens: Maximum tokens for response generation
-            temperature: Temperature for response generation
-            log_file: Path to log file for tracking operations
-            system_prompt: System prompt to guide the AI's responses
+            model_name: Model to use (uses config value if None)
+            max_tokens: Maximum tokens for response generation (uses config value if None)
+            temperature: Temperature for response generation (uses config value if None)
+            log_file: Path to log file for tracking operations (uses config value if None)
+            system_prompt: System prompt to guide the AI's responses (uses config value if None)
         """
         self.openrouter_api_key = openrouter_api_key
-        self.model_name = model_name
-        self.max_tokens = max_tokens
-        self.temperature = temperature
-        self.system_prompt = system_prompt
-        self.default_top_k = 3  # Default value
-        self.log_file = log_file
+        self.model_name = model_name if model_name is not None else config.MODEL_NAME
+        self.max_tokens = max_tokens if max_tokens is not None else config.MAX_TOKENS
+        self.temperature = temperature if temperature is not None else config.TEMPERATURE
+        self.system_prompt = system_prompt if system_prompt is not None else config.SYSTEM_PROMPT
+        self.default_top_k = config.TOP_K_DOCUMENTS  # Use config value
+        self.log_file = log_file if log_file is not None else config.LOG_FILE
         self.openrouter_url = "https://openrouter.ai/api/v1/chat/completions"
         
         # Setup logging
@@ -53,22 +54,34 @@ class RAGAgent:
         
         # Query expansion configuration for Letstalk app
         self.query_expansions = {
-            # "群": ["群組", "群聊", "群組聊天", "建立群組", "群組功能", "群組成員"],
-            # "好友": ["好友", "朋友", "聯絡人", "加好友", "好友列表", "好友管理"],
-            # "訊息": ["訊息", "消息", "聊天", "對話", "傳送", "接收"],
-            # "登入": ["登入", "登錄", "登入問題", "無法登入", "登入失敗"],
-            # "帳號": ["帳號", "帳戶", "用戶", "註冊", "帳號管理", "帳號設定"],
-            # "檔案": ["檔案", "文件", "附件", "圖片", "照片", "影片"],
-            # "設定": ["設定", "設置", "配置", "選項", "偏好設定"],
-            # "通知": ["通知", "提醒", "推播", "通知設定", "消息提醒"],
-            # "封鎖": ["封鎖", "阻擋", "黑名單", "封鎖好友", "解除封鎖"],
-            # "下載": ["下載", "載入", "保存", "儲存", "無法下載"],
-            # "刪除": ["刪除", "移除", "清除", "刪掉", "消除"],
-            # "密碼": ["密碼", "密碼重設", "忘記密碼", "修改密碼", "密碼問題"],
-            # "聊天": ["聊天", "對話", "談話", "交談", "聊天室"],
-            # "功能": ["功能", "特色", "選項", "工具", "服務"],
-            # "問題": ["問題", "錯誤", "故障", "異常", "無法使用"],
-            "安裝": ["安裝 letstalk", "letstalk 安裝檔", "letstalk 安裝包", "更新 letstalk", "letstalk 更新檔"], 
+            # 時刻相關擴展
+            "時刻": ["時刻功能", "時刻貼文", "發布時刻", "分享時刻", "時刻頁面", "時刻內容", "我的時刻"],
+            "找不到時刻": ["時刻功能", "時刻", "沒有時刻", "時刻不見", "時刻消失", "為什麼沒有時刻", "時刻在哪裡", "時刻不可見"],
+            "看不到時刻": ["時刻功能", "時刻", "時刻不可見", "時刻隱藏", "為什麼看不到時刻", "時刻介面"],
+            "時刻不見": ["時刻功能", "時刻", "沒有時刻", "時刻消失", "為什麼沒有時刻功能", "時刻不可見"],
+            
+            # 其他功能擴展
+            "群": ["群組", "群聊", "群組聊天", "建立群組", "群組功能", "群組成員"],
+            "好友": ["好友", "朋友", "聯絡人", "加好友", "好友列表", "好友管理"],
+            "訊息": ["訊息", "消息", "聊天", "對話", "傳送", "接收"],
+            "登入": ["登入", "登錄", "登入問題", "無法登入", "登入失敗"],
+            "帳號": ["帳號", "帳戶", "用戶", "註冊", "帳號管理", "帳號設定"],
+            "檔案": ["檔案", "文件", "附件", "圖片", "照片", "影片"],
+            "設定": ["設定", "設置", "配置", "選項", "偏好設定"],
+            "通知": ["通知", "提醒", "推播", "通知設定", "消息提醒"],
+            "封鎖": ["封鎖", "阻擋", "黑名單", "封鎖好友", "解除封鎖"],
+            "下載": ["下載", "載入", "保存", "儲存", "無法下載"],
+            "刪除": ["刪除", "移除", "清除", "刪掉", "消除"],
+            "密碼": ["密碼", "密碼重設", "忘記密碼", "修改密碼", "密碼問題"],
+            "聊天": ["聊天", "對話", "談話", "交談", "聊天室"],
+            "功能": ["功能", "特色", "選項", "工具", "服務"],
+            "問題": ["問題", "錯誤", "故障", "異常", "無法使用"],
+            "安裝": ["安裝 letstalk", "letstalk 安裝檔", "letstalk 安裝包", "更新 letstalk", "letstalk 更新檔"],
+            
+            # 問題導向擴展
+            "找不到": ["無法找到", "看不到", "不見了", "消失", "沒有", "不存在"],
+            "無法": ["不能", "不會", "無法使用", "失效", "故障"],
+            "沒有": ["找不到", "不見", "消失", "不存在", "看不到"],
         }
         
         print("RAG Agent initialized successfully!")
@@ -112,6 +125,36 @@ class RAGAgent:
         except Exception as e:
             print(f"Warning: Could not write to log file: {e}")
     
+    def change_model(self, new_model_name: str) -> bool:
+        """
+        Change the model used for generating responses
+        
+        Args:
+            new_model_name: New model name to use
+            
+        Returns:
+            bool: True if model was changed successfully, False otherwise
+        """
+        try:
+            old_model = self.model_name
+            self.model_name = new_model_name
+            
+            self.log_operation("SYSTEM", "Model changed", {
+                "old_model": old_model,
+                "new_model": new_model_name
+            })
+            
+            print(f"Model changed from '{old_model}' to '{new_model_name}'")
+            return True
+            
+        except Exception as e:
+            print(f"Error changing model: {e}")
+            self.log_operation("ERROR", "Failed to change model", {
+                "old_model": self.model_name,
+                "new_model": new_model_name,
+                "error": str(e)
+            })
+            return False
 
     def load_txt_data(self, txt_file_path: str):
         """
@@ -396,7 +439,7 @@ class RAGAgent:
     
     def expand_query(self, query: str) -> str:
         """
-        Expand short queries using synonyms and related terms
+        Intelligent query expansion with negation handling
         
         Args:
             query: Original user query
@@ -407,34 +450,139 @@ class RAGAgent:
         expanded_terms = set()
         query_lower = query.lower()
         
-        # Find matching expansion terms
+        # 檢查是否是否定查詢（如"找不到時刻"）
+        is_negation_query = any(neg_word in query_lower for neg_word in 
+                               ['找不到', '看不到', '沒有', '不見', '無法', '不能', '消失'])
+        
+        # 首先嘗試完整匹配
         for key, terms in self.query_expansions.items():
             if key in query_lower:
                 expanded_terms.update(terms)
+                self.log_operation("QUERY_EXPANSION", "Exact match expansion", {
+                    "matched_key": key,
+                    "expanded_terms": terms
+                })
         
-        # Also add partial matches for short queries
-        if len(query.strip()) <= 3:
+        # 對於否定查詢，特別處理
+        if is_negation_query and not expanded_terms:
+            # 提取被否定的主要對象
+            for neg_word in ['找不到', '看不到', '沒有', '不見']:
+                if neg_word in query_lower:
+                    # 獲取否定詞後面的內容
+                    after_neg = query_lower.split(neg_word)[-1].strip()
+                    if after_neg:
+                        # 檢查是否有對應的擴展
+                        for key, terms in self.query_expansions.items():
+                            if after_neg in key or key in after_neg:
+                                expanded_terms.update(terms)
+                                # 也添加原始關鍵詞
+                                expanded_terms.add(after_neg)
+                                self.log_operation("QUERY_EXPANSION", "Negation-aware expansion", {
+                                    "negation_word": neg_word,
+                                    "extracted_object": after_neg,
+                                    "matched_key": key,
+                                    "expanded_terms": terms
+                                })
+                                break
+        
+        # 如果還沒找到擴展，嘗試部分匹配
+        if not expanded_terms:
+            for key, terms in self.query_expansions.items():
+                # 檢查查詢中是否包含key的任何字符
+                if any(char in query_lower for char in key):
+                    # 計算相似度
+                    similarity = len(set(query_lower) & set(key)) / len(set(key))
+                    if similarity > 0.3:  # 30%以上字符相似度
+                        expanded_terms.update(terms[:3])  # 只取前3個同義詞
+                        self.log_operation("QUERY_EXPANSION", "Partial match expansion", {
+                            "matched_key": key,
+                            "similarity": similarity,
+                            "expanded_terms": terms[:3]
+                        })
+        
+        # 對於很短的查詢，更寬泛地擴展
+        if len(query.strip()) <= 3 and not expanded_terms:
             for key, terms in self.query_expansions.items():
                 if any(char in key for char in query_lower):
-                    expanded_terms.update(terms[:3])  # Add first 3 synonyms for partial matches
-        
+                    expanded_terms.update(terms[:2])  # 只取前2個同義詞
+                    
         if expanded_terms:
-            # Remove the original query terms to avoid duplication
+            # 移除原查詢詞避免重複
             expanded_terms.discard(query_lower)
             expanded_query = query + " " + " ".join(expanded_terms)
             
-            self.log_operation("QUERY_EXPANSION", "Query expanded", {
+            self.log_operation("QUERY_EXPANSION", "Query expansion completed", {
                 "original": query,
                 "expanded": expanded_query,
-                "added_terms": list(expanded_terms)
+                "added_terms": list(expanded_terms),
+                "is_negation_query": is_negation_query
             })
             return expanded_query
         
+        self.log_operation("QUERY_EXPANSION", "No expansion applied", {
+            "original": query,
+            "reason": "No matching expansion rules found"
+        })
         return query
     
+    def _extract_keywords(self, query: str) -> List[str]:
+        """
+        Extract meaningful keywords from query by removing noise words and negations
+        
+        Args:
+            query: Search query
+            
+        Returns:
+            List of extracted keywords
+        """
+        # 定义停用词和否定词
+        stop_words = {'的', '了', '在', '是', '我', '有', '和', '就', '不', '了', '也', '都', '這', '那', '可以', '如何', '什麼', '為什麼', '怎麼', '哪裡'}
+        negation_words = {'找不到', '沒有', '不能', '無法', '不會', '看不到', '不見', '消失', '沒看到', '不存在'}
+        problem_indicators = {'問題', '錯誤', '故障', '異常', '失敗', '無效'}
+        
+        query_lower = query.lower()
+        
+        # 檢查是否包含否定詞，如果有，提取被否定的對象
+        keywords = []
+        
+        # 處理"找不到X"這類查詢，提取X作為關鍵詞
+        for neg_word in negation_words:
+            if neg_word in query_lower:
+                # 找到否定詞後面的內容作為關鍵詞
+                parts = query_lower.split(neg_word)
+                if len(parts) > 1:
+                    after_negation = parts[1].strip()
+                    if after_negation:
+                        keywords.append(after_negation)
+                # 也嘗試找否定詞前面的內容
+                before_negation = parts[0].strip()
+                if before_negation:
+                    keywords.append(before_negation)
+        
+        # 如果沒有找到否定詞，按常規方式提取關鍵詞
+        if not keywords:
+            query_terms = query_lower.split()
+            for term in query_terms:
+                if term not in stop_words and len(term) > 1:
+                    keywords.append(term)
+        
+        # 去重並過濾
+        unique_keywords = []
+        for keyword in keywords:
+            if keyword and keyword not in unique_keywords and keyword not in stop_words:
+                unique_keywords.append(keyword)
+        
+        self.log_operation("KEYWORD_EXTRACTION", "Extracted keywords from query", {
+            "original_query": query,
+            "extracted_keywords": unique_keywords,
+            "extraction_method": "negation_aware" if any(neg in query_lower for neg in negation_words) else "standard"
+        })
+        
+        return unique_keywords if unique_keywords else [query.lower()]
+
     def _keyword_search(self, query: str, top_k: int) -> List[Dict[str, Any]]:
         """
-        Simple keyword-based search for exact matches
+        Enhanced keyword-based search with intelligent keyword extraction
         
         Args:
             query: Search query
@@ -444,27 +592,58 @@ class RAGAgent:
             List of documents with keyword matches
         """
         keyword_matches = []
-        query_lower = query.lower()
-        query_terms = query_lower.split()
+        
+        # 使用智能關鍵詞提取
+        keywords = self._extract_keywords(query)
         
         for idx, doc in enumerate(self.documents):
             doc_lower = doc.lower()
             
-            # Calculate keyword match score
-            exact_matches = sum(1 for term in query_terms if term in doc_lower)
-            if exact_matches > 0:
-                # Higher score for more matches
-                keyword_score = exact_matches / len(query_terms)
+            # 計算關鍵詞匹配分數
+            exact_matches = 0
+            partial_matches = 0
+            
+            for keyword in keywords:
+                if keyword in doc_lower:
+                    exact_matches += 1
+                else:
+                    # 檢查部分匹配（對於較長的關鍵詞）
+                    if len(keyword) > 2:
+                        keyword_chars = set(keyword)
+                        doc_chars = set(doc_lower)
+                        if len(keyword_chars.intersection(doc_chars)) / len(keyword_chars) > 0.7:
+                            partial_matches += 0.5
+            
+            total_matches = exact_matches + partial_matches
+            
+            if total_matches > 0:
+                # 計算匹配分數，考慮精確匹配和部分匹配
+                keyword_score = total_matches / len(keywords)
+                
+                # 提升分數如果文檔包含問題相關詞彙
+                if any(word in doc_lower for word in ['問題', '如何', '為什麼', '怎麼', '無法', '不能']):
+                    keyword_score *= 1.2
+                
                 keyword_matches.append({
                     'index': idx,
                     'content': doc,
                     'metadata': self.metadata[idx],
                     'keyword_score': keyword_score,
-                    'similarity': keyword_score  # Use keyword score as similarity
+                    'similarity': keyword_score,
+                    'matched_keywords': [kw for kw in keywords if kw in doc_lower]
                 })
         
-        # Sort by keyword score
+        # 按關鍵詞分數排序
         keyword_matches.sort(key=lambda x: x['keyword_score'], reverse=True)
+        
+        # 記錄搜索結果
+        self.log_operation("KEYWORD_SEARCH", "Keyword search completed", {
+            "query": query,
+            "extracted_keywords": keywords,
+            "matches_found": len(keyword_matches),
+            "top_scores": [x['keyword_score'] for x in keyword_matches[:3]]
+        })
+        
         return keyword_matches[:top_k]
     
     def _broad_search(self, query: str, top_k: int) -> List[Dict[str, Any]]:
@@ -541,17 +720,19 @@ class RAGAgent:
         
         return combined_results
     
-    def retrieve_relevant_documents(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
+    def retrieve_relevant_documents(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
         """
         Retrieve most relevant documents for a query with enhanced multi-stage retrieval
         
         Args:
             query: User query
-            top_k: Number of top documents to return
+            top_k: Number of top documents to return (uses config value if None)
             
         Returns:
             List of relevant documents with metadata
         """
+        if top_k is None:
+            top_k = self.default_top_k
         if self.embeddings is None:
             print("No embeddings available. Please create or load embeddings first.")
             return []
