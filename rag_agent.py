@@ -827,34 +827,36 @@ class RAGAgent:
         # Get conversation history context
         conversation_context = self.get_conversation_context()
         
-        # Create enhanced prompt with conversation history
-        prompt_parts = [self.system_prompt]
+        # Create system message with context
+        system_content_parts = [self.system_prompt]
+        
+        # Add document context to system message
+        system_content_parts.append(f"\n\n相關資料：\n{document_context}")
         
         # Add conversation context if exists
         if conversation_context:
-            prompt_parts.append(f"\n對話歷史脈絡：\n{conversation_context}")
+            system_content_parts.append(f"\n\n對話歷史脈絡：\n{conversation_context}")
         
-        # Add document context
-        prompt_parts.append(f"\n相關資料：\n{document_context}")
+        system_content_parts.append("\n\n請基於上述資料和對話脈絡提供準確、有幫助的回答。")
         
-        # Add current query
-        prompt_parts.append(f"\n用戶問題：{query}")
-        
-        prompt_parts.append("\n請基於上述脈絡和資料提供準確、有幫助的回答。如果當前問題與之前的對話相關，請結合對話歷史給出更好的回答：")
-        
-        prompt = "".join(prompt_parts)
+        system_message = "".join(system_content_parts)
 
         headers = {
             'Authorization': f'Bearer {self.openrouter_api_key}',
             'Content-Type': 'application/json'
         }
         
+        # Create messages with proper role separation
         data = {
             'model': self.model_name,
             'messages': [
                 {
+                    'role': 'system',
+                    'content': system_message
+                },
+                {
                     'role': 'user',
-                    'content': prompt
+                    'content': query
                 }
             ],
             'max_tokens': self.max_tokens,

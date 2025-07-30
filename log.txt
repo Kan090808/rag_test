@@ -16422,3 +16422,1134 @@
   }
 }
 --------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:37:21",
+  "type": "SYSTEM",
+  "operation": "Loading sentence transformer model",
+  "details": {}
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:37:25",
+  "type": "SYSTEM",
+  "operation": "RAG Agent initialized",
+  "details": {
+    "model_name": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:37:25",
+  "type": "DATA_LOAD",
+  "operation": "Loaded TXT file",
+  "details": {
+    "file": "0708.txt",
+    "qa_pairs": 504
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "added_terms": [
+      "時刻不可見",
+      "沒有",
+      "沒有時刻",
+      "為什麼沒有時刻",
+      "我的時刻",
+      "時刻功能",
+      "時刻不見",
+      "發布時刻",
+      "不存在",
+      "時刻內容",
+      "不見了",
+      "看不到",
+      "消失",
+      "時刻頁面",
+      "時刻在哪裡",
+      "時刻消失",
+      "分享時刻",
+      "時刻貼文",
+      "無法找到",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:04",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:05",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.6907013654708862,
+    "results": [
+      {
+        "similarity_score": 0.8944208192825317,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8905734586715698,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8749056386947631,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:08",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 153,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:08",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:08",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。\n\n您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊，確認是否屬於支援「時刻」功能的國家。",
+    "documents_used": 10,
+    "top_similarity": 0.8944208192825317,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:13",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "openai/gpt-4.1-mini",
+    "new_model": "anthropic/claude-3.5-haiku"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:13",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:38:13"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "added_terms": [
+      "時刻不可見",
+      "沒有",
+      "沒有時刻",
+      "為什麼沒有時刻",
+      "我的時刻",
+      "時刻功能",
+      "時刻不見",
+      "發布時刻",
+      "不存在",
+      "時刻內容",
+      "不見了",
+      "看不到",
+      "消失",
+      "時刻頁面",
+      "時刻在哪裡",
+      "時刻消失",
+      "分享時刻",
+      "時刻貼文",
+      "無法找到",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:16",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.6907013654708862,
+    "results": [
+      {
+        "similarity_score": 0.8944208192825317,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8905734586715698,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8749056386947631,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:22",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "anthropic/claude-3.5-haiku",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 293,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:22",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:22",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "很抱歉您遇到找不到時刻的問題。根據資料庫的資訊，這可能是因為時刻功能目前僅開放部分國家使用。具體來說：\n\n1. 時刻功能的可用性取決於您註冊時使用的電話號碼國碼。\n\n2. 如果您的電話號碼不屬於目前支援此功能的國家，「時刻」功能將不會出現在應用程式介面中。\n\n建議您可以：\n- 在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼\n- 確認您的國家是否在支援時刻功能的國家列表中\n\n如果您確定自己應該可以使用時刻功能，但仍然找不到，建議您：\n1. 檢查Letstalk應用程式是否為最新版本\n2. 嘗試重新登入應用程式\n3. 如果問題仍然存在，可以點擊「轉接真人客服」獲得進一步協助",
+    "documents_used": 10,
+    "top_similarity": 0.8944208192825317,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:39",
+  "type": "CONVERSATION",
+  "operation": "Conversation history cleared",
+  "details": {
+    "timestamp": "2025-07-30 15:38:39"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:42",
+  "type": "SYSTEM",
+  "operation": "Model changed",
+  "details": {
+    "old_model": "anthropic/claude-3.5-haiku",
+    "new_model": "openai/gpt-4.1-mini"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "找不到時刻",
+    "top_k": 10,
+    "conversation_history_length": 0,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "找不到時刻",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻貼文",
+      "發布時刻",
+      "分享時刻",
+      "時刻頁面",
+      "時刻內容",
+      "我的時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻",
+      "時刻不見",
+      "時刻消失",
+      "為什麼沒有時刻",
+      "時刻在哪裡",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "QUERY_EXPANSION",
+  "operation": "Exact match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了",
+      "消失",
+      "沒有",
+      "不存在"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "找不到時刻",
+    "expanded": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "added_terms": [
+      "時刻不可見",
+      "沒有",
+      "沒有時刻",
+      "為什麼沒有時刻",
+      "我的時刻",
+      "時刻功能",
+      "時刻不見",
+      "發布時刻",
+      "不存在",
+      "時刻內容",
+      "不見了",
+      "看不到",
+      "消失",
+      "時刻頁面",
+      "時刻在哪裡",
+      "時刻消失",
+      "分享時刻",
+      "時刻貼文",
+      "無法找到",
+      "時刻"
+    ],
+    "is_negation_query": true
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "extraction_method": "negation_aware"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:45",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "找不到時刻",
+    "extracted_keywords": [
+      "時刻"
+    ],
+    "matches_found": 11,
+    "top_scores": [
+      1.2,
+      1.2,
+      1.2
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:46",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "找不到時刻",
+    "expanded_query": "找不到時刻 時刻不可見 沒有 沒有時刻 為什麼沒有時刻 我的時刻 時刻功能 時刻不見 發布時刻 不存在 時刻內容 不見了 看不到 消失 時刻頁面 時刻在哪裡 時刻消失 分享時刻 時刻貼文 無法找到 時刻",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 11,
+    "max_semantic_score": 0.6907013654708862,
+    "results": [
+      {
+        "similarity_score": 0.8944208192825317,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為只有自己可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「私人」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8905734586715698,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為所有用戶可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「公開」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.8749056386947631,
+        "question": "在Letstalk應用程式中，如何將時刻貼文的可見性設定為特定朋友可見?",
+        "answer": "1. 點按貼文右上方的「…」 2. 再至「設定公開權限」選擇「特定朋友」",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何刪除非好友的時刻？",
+        "answer": "將該好友封鎖即可刪除非好友的時刻內容。 帳號安全問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何分享聊天室貼文?",
+        "answer": "點選貼文下方「箭頭往外」的按鈕可以分享貼文。 時刻功能問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "為什麼「我的」頁面沒有「時刻」功能？",
+        "answer": "時刻功能僅開放部分國家使用。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "Letstalk應用程式上的「時刻」功能為什麼在「我的」介面中不可見?",
+        "answer": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "如何發布時刻貼文?",
+        "answer": "1. 在時刻頁面，點選右下角的「+」後 2. 輸入您想分享的內容即可發布貼文",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "中國無法查看時刻嗎？",
+        "answer": "是的，時刻功能僅支援部分地區。 個人化設定 外觀設定問題",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.48,
+        "question": "時刻功能是什麼？",
+        "answer": "時刻功能是一個您可以隨時記錄生活，分享給好友的園地。",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:48",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "找不到時刻",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 133,
+    "context_docs_count": 10,
+    "has_conversation_history": false,
+    "conversation_history_length": 0
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:48",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 1,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:48",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "找不到時刻",
+    "response": "「時刻」功能目前僅向特定國家的用戶開放使用。Letstalk根據您註冊時使用的電話號碼國碼來判斷您的國家。若您使用的電話號碼不屬於目前支援此功能的國家，則「時刻」功能將不會出現在您的應用程式介面中。您可以在應用程式的「設定」>「個人資訊」中查看您註冊的電話號碼資訊。",
+    "documents_used": 10,
+    "top_similarity": 0.8944208192825317,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "CHAT",
+  "operation": "Started chat interaction with conversation history",
+  "details": {
+    "query": "傳不到圖片",
+    "top_k": 10,
+    "conversation_history_length": 1,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "SEARCH",
+  "operation": "Starting enhanced retrieval",
+  "details": {
+    "original_query": "傳不到圖片",
+    "query_length": 5,
+    "top_k": 10
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "QUERY_EXPANSION",
+  "operation": "Partial match expansion",
+  "details": {
+    "matched_key": "找不到時刻",
+    "similarity": 0.4,
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "沒有時刻"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "QUERY_EXPANSION",
+  "operation": "Partial match expansion",
+  "details": {
+    "matched_key": "看不到時刻",
+    "similarity": 0.4,
+    "expanded_terms": [
+      "時刻功能",
+      "時刻",
+      "時刻不可見"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "QUERY_EXPANSION",
+  "operation": "Partial match expansion",
+  "details": {
+    "matched_key": "找不到",
+    "similarity": 0.6666666666666666,
+    "expanded_terms": [
+      "無法找到",
+      "看不到",
+      "不見了"
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "QUERY_EXPANSION",
+  "operation": "Query expansion completed",
+  "details": {
+    "original": "傳不到圖片",
+    "expanded": "傳不到圖片 時刻不可見 沒有時刻 不見了 無法找到 時刻 看不到 時刻功能",
+    "added_terms": [
+      "時刻不可見",
+      "沒有時刻",
+      "不見了",
+      "無法找到",
+      "時刻",
+      "看不到",
+      "時刻功能"
+    ],
+    "is_negation_query": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "KEYWORD_EXTRACTION",
+  "operation": "Extracted keywords from query",
+  "details": {
+    "original_query": "傳不到圖片",
+    "extracted_keywords": [
+      "傳不到圖片"
+    ],
+    "extraction_method": "standard"
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "KEYWORD_SEARCH",
+  "operation": "Keyword search completed",
+  "details": {
+    "query": "傳不到圖片",
+    "extracted_keywords": [
+      "傳不到圖片"
+    ],
+    "matches_found": 5,
+    "top_scores": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:38:58",
+  "type": "SEARCH",
+  "operation": "Enhanced retrieval completed",
+  "details": {
+    "query": "傳不到圖片",
+    "expanded_query": "傳不到圖片 時刻不可見 沒有時刻 不見了 無法找到 時刻 看不到 時刻功能",
+    "top_k": 10,
+    "total_documents": 497,
+    "search_type": "combined",
+    "keyword_matches": 5,
+    "max_semantic_score": 0.7110608220100403,
+    "results": [
+      {
+        "similarity_score": 0.42663649320602415,
+        "question": "為什麼無法(不能)轉傳訊息?",
+        "answer": "*  確認您所轉傳的訊息是否已超過有效期限，檔案類型的訊息30天以上無法轉傳，文字訊息則沒有轉傳有效期限。 *  確認您所要轉傳的訊息是否為閱後即焚訊息，閱後即焚訊息沒有支援轉傳功能",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4210538148880005,
+        "question": "被好友封鎖可以傳送訊息？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4128475427627563,
+        "question": "被好友封鎖可以傳送訊息嗎？",
+        "answer": "如果您被好友封鎖了，您仍然能傳送訊息或撥打電話給好友，但對方會收不到。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4120918750762939,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4120918750762939,
+        "question": "封鎖好友會怎麼樣？",
+        "answer": "您將接收不到被封鎖的好友來電或是訊息。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40850440263748167,
+        "question": "如果不設定大頭貼會怎麼顯示？",
+        "answer": "會顯示您Letstalk姓名的第一個字作為您的大頭貼。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4082591414451599,
+        "question": "收不到驗證碼怎麼辦?",
+        "answer": "* 確認電話號碼與國碼是否正確。 * 確認網路連線是否順暢。 * 確認手機是否能正常接收其他訊息。 * 請先暫時關閉防毒/安全軟體的簡訊攔截功能。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40222964286804197,
+        "question": "進不了群組怎麼辦?",
+        "answer": "如果遇到進不了群組的情況，可能是連結或QR碼過期了，您可以請群組的成員傳送新的連結或QR碼給您。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.4006908774375915,
+        "question": "新增好友顯示找不到怎麼辦?",
+        "answer": "1. 確認您所輸入的聯絡人資訊是否正確。 2. 確認是否多按了一格空白鍵。",
+        "source": "0708.txt"
+      },
+      {
+        "similarity_score": 0.40022435188293454,
+        "question": "如何讓聊天室不再顯示訂選訊息欄位？",
+        "answer": "在釘選訊息欄位點擊向下箭頭>點按「不再顯示」。 聊天室設定",
+        "source": "0708.txt"
+      }
+    ]
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:39:02",
+  "type": "RESPONSE",
+  "operation": "Generated AI response with conversation context",
+  "details": {
+    "query": "傳不到圖片",
+    "model": "openai/gpt-4.1-mini",
+    "max_tokens": 1000,
+    "temperature": 0.7,
+    "response_length": 208,
+    "context_docs_count": 10,
+    "has_conversation_history": true,
+    "conversation_history_length": 1
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:39:02",
+  "type": "CONVERSATION",
+  "operation": "Added to conversation history",
+  "details": {
+    "history_length": 2,
+    "has_summary": false
+  }
+}
+--------------------------------------------------------------------------------
+
+{
+  "timestamp": "2025-07-30 15:39:02",
+  "type": "ANSWER",
+  "operation": "Chat interaction completed with history update",
+  "details": {
+    "query": "傳不到圖片",
+    "response": "您好，關於傳不到圖片的問題，您可以確認以下幾點：\n\n1. 確認您所轉傳的圖片是否已超過有效期限，檔案類型的訊息超過30天後是無法轉傳的。\n2. 確認圖片是否為閱後即焚訊息，閱後即焚訊息是不支援轉傳功能的。\n\n如果以上都沒有問題，建議您確認網路連線是否順暢，或重新啟動應用程式再試一次。\n\n若問題仍無法解決，您可以嘗試用不同方式重新描述，或在聊天室中輸入「轉接真人客服」，也可以直接點擊下方的轉接真人客服按鈕獲得協助。",
+    "documents_used": 10,
+    "top_similarity": 0.42663649320602415,
+    "conversation_history_length": 2,
+    "has_conversation_summary": false
+  }
+}
+--------------------------------------------------------------------------------
