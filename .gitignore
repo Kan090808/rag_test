@@ -242,3 +242,7 @@ model_cache/
 
 # Serena AI assistant files
 .serena/
+
+# GitHub Actions and Pages (track these)
+!.github/
+!docs/

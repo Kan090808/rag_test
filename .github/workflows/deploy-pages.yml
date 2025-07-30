@@ -1,0 +1,199 @@
+name: Deploy RAG App to GitHub Pages
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Create static documentation site
+        run: |
+          # Create a docs directory for static content
+          mkdir -p docs
+          
+          # Copy template files
+          cp -r templates/* docs/ 2>/dev/null || true
+          
+          # Create index.html from template
+          if [ -f "templates/index.html" ]; then
+            cp templates/index.html docs/index.html
+          else
+            # Create a basic index.html if template doesn't exist
+            cat > docs/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="zh-TW">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>RAG Agent - GitHub Pages</title>
+              <style>
+                  body {
+                      font-family: Arial, sans-serif;
+                      max-width: 800px;
+                      margin: 0 auto;
+                      padding: 20px;
+                      line-height: 1.6;
+                  }
+                  .header {
+                      text-align: center;
+                      margin-bottom: 30px;
+                  }
+                  .feature {
+                      background: #f5f5f5;
+                      padding: 15px;
+                      margin: 10px 0;
+                      border-radius: 5px;
+                  }
+                  .code {
+                      background: #282c34;
+                      color: #abb2bf;
+                      padding: 15px;
+                      border-radius: 5px;
+                      font-family: 'Courier New', monospace;
+                      overflow-x: auto;
+                  }
+                  .warning {
+                      background: #ffe6cc;
+                      border-left: 4px solid #ff9500;
+                      padding: 15px;
+                      margin: 15px 0;
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="header">
+                  <h1>🤖 RAG Agent</h1>
+                  <p>Retrieval-Augmented Generation System with Conversation Memory</p>
+              </div>
+              
+              <div class="warning">
+                  <strong>⚠️ Note:</strong> This is a static documentation page. The full interactive RAG application requires a Python backend and cannot run directly on GitHub Pages.
+              </div>
+              
+              <h2>🚀 Features</h2>
+              <div class="feature">
+                  <h3>🔍 Enhanced Search</h3>
+                  <p>Multi-stage retrieval system combining keyword and semantic search for better document matching.</p>
+              </div>
+              
+              <div class="feature">
+                  <h3>💬 Conversation Memory</h3>
+                  <p>Maintains conversation history and creates summaries for better context understanding.</p>
+              </div>
+              
+              <div class="feature">
+                  <h3>🎯 Query Expansion</h3>
+                  <p>Intelligent query expansion with negation handling for improved search results.</p>
+              </div>
+              
+              <div class="feature">
+                  <h3>📚 FAQ Support</h3>
+                  <p>Load and search through Q&A pairs from text files with embedding-based similarity matching.</p>
+              </div>
+              
+              <h2>🛠️ Installation</h2>
+              <div class="code">git clone https://github.com/Kan090808/rag_test.git
+          cd rag_test
+          pip install -r requirements.txt</div>
+              
+              <h2>⚙️ Configuration</h2>
+              <div class="code"># Copy the configuration template
+          cp config_template.py config.py
+          
+          # Edit config.py with your OpenRouter API key
+          # OPENROUTER_API_KEY = "your-api-key-here"</div>
+              
+              <h2>🏃‍♂️ Running the Application</h2>
+              <div class="code"># Run the web interface
+          python app.py
+          
+          # Or use the startup script
+          python start_web.py</div>
+              
+              <h2>📖 Documentation</h2>
+              <ul>
+                  <li><a href="WEB_INTERFACE_README.md">Web Interface Guide</a></li>
+                  <li><a href="AGENT_SUMMARY.md">Agent Summary</a></li>
+                  <li><a href="RAG_SEARCH_IMPROVEMENT_REPORT.md">Search Improvement Report</a></li>
+              </ul>
+              
+              <h2>🔗 Repository</h2>
+              <p>View the full source code: <a href="https://github.com/Kan090808/rag_test" target="_blank">https://github.com/Kan090808/rag_test</a></p>
+              
+              <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
+                  <p>© 2025 RAG Agent Project</p>
+              </footer>
+          </body>
+          </html>
+          EOF
+          fi
+          
+          # Copy documentation files
+          cp *.md docs/ 2>/dev/null || true
+          
+          # Create a simple README for the docs
+          cat > docs/README.md << 'EOF'
+          # RAG Agent Documentation
+          
+          This is the documentation site for the RAG Agent project, automatically deployed to GitHub Pages.
+          
+          ## Quick Links
+          
+          - [Project Repository](https://github.com/Kan090808/rag_test)
+          - [Web Interface Guide](WEB_INTERFACE_README.md)
+          - [Agent Summary](AGENT_SUMMARY.md)
+          
+          ## About
+          
+          The RAG Agent is a Retrieval-Augmented Generation system with conversation memory and enhanced search capabilities.
+          EOF
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
