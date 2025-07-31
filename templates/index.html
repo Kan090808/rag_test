@@ -96,6 +96,131 @@
             border: 1px solid #e9ecef;
         }
 
+        .message.assistant {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .show-logs-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 6px 12px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 8px;
+            margin-left: 0;
+        }
+
+        .show-logs-btn:hover {
+            background: #545b62;
+        }
+
+        .logs-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .logs-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .logs-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logs-modal-title {
+            margin: 0;
+            color: #333;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .log-entry {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .log-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .log-type {
+            background: #007bff;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .log-type.SEARCH { background: #28a745; }
+        .log-type.CHAT { background: #007bff; }
+        .log-type.ANSWER { background: #ffc107; color: #000; }
+        .log-type.ERROR { background: #dc3545; }
+        .log-type.SYSTEM { background: #6c757d; }
+        .log-type.QUERY_EXPANSION { background: #17a2b8; }
+        .log-type.KEYWORD_SEARCH { background: #fd7e14; }
+
+        .log-timestamp {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .log-operation {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .log-details {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
         .message-time {
             font-size: 10px;
             opacity: 0.7;
@@ -313,6 +438,19 @@
         </div>
     </div>
 
+    <!-- Logs Modal -->
+    <div id="logsModal" class="logs-modal">
+        <div class="logs-modal-content">
+            <div class="logs-modal-header">
+                <h3 class="logs-modal-title">問題處理日誌</h3>
+                <button class="close-modal" onclick="closeLogsModal()">&times;</button>
+            </div>
+            <div id="logsContent">
+                <!-- Logs content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
     <script>
         // DOM elements
         const chatMessages = document.getElementById('chatMessages');
@@ -366,7 +504,7 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    addMessage('assistant', data.response, data.timestamp);
+                    addMessage('assistant', data.response, data.timestamp, data.question_id);
                 } else {
                     addErrorMessage(data.error || '發生未知錯誤');
                 }
@@ -378,7 +516,7 @@
             }
         }
 
-        function addMessage(sender, content, timestamp = null) {
+        function addMessage(sender, content, timestamp = null, questionId = null) {
             // Remove welcome message if exists
             const welcomeMessage = chatMessages.querySelector('.welcome-message');
             if (welcomeMessage) {
@@ -400,6 +538,16 @@
             }
 
             messageDiv.appendChild(contentDiv);
+
+            // Add show logs button for assistant messages with questionId
+            if (sender === 'assistant' && questionId) {
+                const showLogsBtn = document.createElement('button');
+                showLogsBtn.className = 'show-logs-btn';
+                showLogsBtn.textContent = '📋 顯示處理日誌';
+                showLogsBtn.onclick = () => showLogs(questionId);
+                messageDiv.appendChild(showLogsBtn);
+            }
+
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -530,6 +678,196 @@
                 'openai/gpt-4.1-mini': 'GPT-4.1 Mini'
             };
             return modelNames[modelName] || modelName;
+        }
+
+        async function showLogs(questionId) {
+            try {
+                const response = await fetch(`/logs/${questionId}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    displayLogsModal(data);
+                } else {
+                    alert(`無法載入日誌: ${data.error}`);
+                }
+            } catch (error) {
+                console.error('Error fetching logs:', error);
+                alert('載入日誌時發生錯誤');
+            }
+        }
+
+        function displayLogsModal(logData) {
+            const logsContent = document.getElementById('logsContent');
+            
+            // Create header info
+            const headerInfo = document.createElement('div');
+            headerInfo.style.marginBottom = '20px';
+            headerInfo.style.padding = '15px';
+            headerInfo.style.backgroundColor = '#e9ecef';
+            headerInfo.style.borderRadius = '8px';
+            headerInfo.innerHTML = `
+                <div style="margin-bottom: 8px;"><strong>問題:</strong> ${logData.question}</div>
+                <div style="margin-bottom: 8px;"><strong>時間:</strong> ${logData.timestamp}</div>
+                <div style="margin-bottom: 8px;"><strong>處理時間:</strong> ${logData.processing_time ? logData.processing_time.toFixed(2) + ' 秒' : 'N/A'}</div>
+                <div><strong>回應預覽:</strong> ${logData.response.substring(0, 150)}${logData.response.length > 150 ? '...' : ''}</div>
+            `;
+            
+            logsContent.innerHTML = '';
+            logsContent.appendChild(headerInfo);
+
+            // Create logs entries
+            if (logData.logs && logData.logs.length > 0) {
+                const processTitle = document.createElement('h4');
+                processTitle.textContent = '處理流程日誌:';
+                processTitle.style.margin = '20px 0 15px 0';
+                processTitle.style.color = '#333';
+                logsContent.appendChild(processTitle);
+
+                logData.logs.forEach((log, index) => {
+                    const logDiv = document.createElement('div');
+                    logDiv.className = 'log-entry';
+                    
+                    // Format details better
+                    let detailsStr = '';
+                    if (log.details && typeof log.details === 'object') {
+                        // Show key information in a more readable format
+                        if (log.type === 'CHAT' || log.type === 'ANSWER') {
+                            detailsStr = `查詢: ${log.details.query || 'N/A'}\n`;
+                            if (log.details.documents_used) {
+                                detailsStr += `使用文檔數量: ${log.details.documents_used}\n`;
+                            }
+                            if (log.details.top_similarity) {
+                                detailsStr += `最高相似度: ${(log.details.top_similarity * 100).toFixed(2)}%\n`;
+                            }
+                            if (log.details.conversation_history_length !== undefined) {
+                                detailsStr += `對話歷史長度: ${log.details.conversation_history_length}\n`;
+                            }
+                        } else if (log.type === 'SEARCH') {
+                            if (log.details.query) {
+                                detailsStr += `🔍 搜尋查詢: ${log.details.query}\n`;
+                            }
+                            if (log.details.expanded_query && log.details.expanded_query !== log.details.query) {
+                                detailsStr += `🔄 擴展查詢: ${log.details.expanded_query}\n`;
+                            }
+                            if (log.details.search_type) {
+                                detailsStr += `📋 搜尋類型: ${log.details.search_type}\n`;
+                            }
+                            if (log.details.top_k) {
+                                detailsStr += `📊 請求數量: ${log.details.top_k}\n`;
+                            }
+                            if (log.details.total_documents) {
+                                detailsStr += `📚 總文檔數: ${log.details.total_documents}\n`;
+                            }
+                            if (log.details.keyword_matches !== undefined) {
+                                detailsStr += `🔑 關鍵字匹配: ${log.details.keyword_matches}\n`;
+                            }
+                            if (log.details.max_semantic_score) {
+                                detailsStr += `⚡ 最高語義分數: ${(log.details.max_semantic_score * 100).toFixed(2)}%\n`;
+                            }
+                            
+                            // Show search results
+                            if (log.details.results && log.details.results.length > 0) {
+                                detailsStr += `\n📋 搜尋結果 (${log.details.results.length} 筆):\n`;
+                                detailsStr += '='.repeat(50) + '\n';
+                                
+                                log.details.results.forEach((result, idx) => {
+                                    detailsStr += `\n${idx + 1}. 相似度: ${(result.similarity_score * 100).toFixed(2)}%\n`;
+                                    detailsStr += `   問題: ${result.question}\n`;
+                                    detailsStr += `   答案: ${result.answer.length > 100 ? result.answer.substring(0, 100) + '...' : result.answer}\n`;
+                                    detailsStr += `   來源: ${result.source}\n`;
+                                    if (idx < log.details.results.length - 1) {
+                                        detailsStr += '-'.repeat(30) + '\n';
+                                    }
+                                });
+                            }
+                        } else if (log.type === 'KEYWORD_SEARCH') {
+                            if (log.details.query) {
+                                detailsStr += `🔍 關鍵字搜尋: ${log.details.query}\n`;
+                            }
+                            if (log.details.extracted_keywords) {
+                                detailsStr += `🏷️ 提取關鍵字: [${log.details.extracted_keywords.join(', ')}]\n`;
+                            }
+                            if (log.details.matches_found !== undefined) {
+                                detailsStr += `📊 找到匹配: ${log.details.matches_found} 筆\n`;
+                            }
+                            if (log.details.top_scores) {
+                                detailsStr += `⭐ 前三分數: [${log.details.top_scores.map(s => s.toFixed(2)).join(', ')}]\n`;
+                            }
+                            
+                            // Show keyword search results
+                            if (log.details.results && log.details.results.length > 0) {
+                                detailsStr += `\n📋 關鍵字搜尋結果 (${log.details.results.length} 筆):\n`;
+                                detailsStr += '='.repeat(50) + '\n';
+                                
+                                log.details.results.forEach((result, idx) => {
+                                    detailsStr += `\n${idx + 1}. 關鍵字分數: ${result.keyword_score.toFixed(2)}\n`;
+                                    detailsStr += `   匹配關鍵字: [${result.matched_keywords.join(', ')}]\n`;
+                                    detailsStr += `   問題: ${result.question}\n`;
+                                    detailsStr += `   答案: ${result.answer}\n`;
+                                    detailsStr += `   來源: ${result.source}\n`;
+                                    if (idx < log.details.results.length - 1) {
+                                        detailsStr += '-'.repeat(30) + '\n';
+                                    }
+                                });
+                            }
+                        } else if (log.type === 'QUERY_EXPANSION') {
+                            if (log.details.original_query) {
+                                detailsStr += `🔍 原始查詢: ${log.details.original_query}\n`;
+                            }
+                            if (log.details.expanded_terms) {
+                                detailsStr += `🔄 擴展詞彙: [${log.details.expanded_terms.join(', ')}]\n`;
+                            }
+                            if (log.details.expansion_type) {
+                                detailsStr += `📝 擴展類型: ${log.details.expansion_type}\n`;
+                            }
+                            if (log.details.final_query) {
+                                detailsStr += `✅ 最終查詢: ${log.details.final_query}\n`;
+                            }
+                        } else {
+                            detailsStr = JSON.stringify(log.details, null, 2);
+                        }
+                    } else {
+                        detailsStr = log.details ? String(log.details) : '無詳細資訊';
+                    }
+                    
+                    logDiv.innerHTML = `
+                        <div class="log-entry-header">
+                            <span class="log-type ${log.type}">${log.type}</span>
+                            <span class="log-timestamp">${log.timestamp}</span>
+                        </div>
+                        <div class="log-operation">${index + 1}. ${log.operation}</div>
+                        <div class="log-details">${detailsStr}</div>
+                    `;
+                    
+                    logsContent.appendChild(logDiv);
+                });
+            } else {
+                const noLogsDiv = document.createElement('div');
+                noLogsDiv.style.textAlign = 'center';
+                noLogsDiv.style.color = '#666';
+                noLogsDiv.style.padding = '20px';
+                noLogsDiv.innerHTML = `
+                    <div style="font-size: 16px; margin-bottom: 10px;">📋</div>
+                    <div>此問題沒有詳細的處理流程日誌</div>
+                    <div style="font-size: 12px; margin-top: 5px; color: #999;">可能是系統指令或日誌記錄失敗</div>
+                `;
+                logsContent.appendChild(noLogsDiv);
+            }
+
+            // Show modal
+            document.getElementById('logsModal').style.display = 'block';
+        }
+
+        function closeLogsModal() {
+            document.getElementById('logsModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('logsModal');
+            if (event.target === modal) {
+                closeLogsModal();
+            }
         }
 
         // Auto-refresh status every 30 seconds

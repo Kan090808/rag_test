@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 import sys
 import socket
+import uuid
 
 # Add the current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -16,6 +17,9 @@ app.secret_key = 'your-secret-key-change-this'  # Change this to a secure secret
 
 # Global RAG agent instance
 rag_agent = None
+
+# Store session data for questions and their logs
+question_sessions = {}
 
 def find_available_port(start_port=5001, max_attempts=10):
     """Find an available port starting from start_port"""
@@ -114,33 +118,129 @@ def chat():
         if not rag_agent:
             return jsonify({'error': 'RAG Agent not initialized'}), 500
         
+        # Generate unique question ID
+        question_id = str(uuid.uuid4())
+        start_time = datetime.now()
+        
         # Handle special commands
         if user_message.lower() == 'clear_history':
             rag_agent.clear_conversation_history()
-            return jsonify({
+            response_data = {
                 'response': '對話歷史已清除！',
-                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            })
+                'timestamp': start_time.strftime('%Y-%m-%d %H:%M:%S'),
+                'question_id': question_id
+            }
+            
+            # Store basic session info even for commands
+            question_sessions[question_id] = {
+                'question': user_message,
+                'response': response_data['response'],
+                'timestamp': start_time,
+                'logs': []
+            }
+            
+            return jsonify(response_data)
         
         if user_message.lower() == 'show_history':
             if rag_agent.conversation_history or rag_agent.conversation_summary:
                 context = rag_agent.get_conversation_context()
-                return jsonify({
-                    'response': f'當前對話歷史：\n{context}',
-                    'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                })
+                response_text = f'當前對話歷史：\n{context}'
             else:
-                return jsonify({
-                    'response': '目前沒有對話歷史。',
-                    'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                })
+                response_text = '目前沒有對話歷史。'
+            
+            response_data = {
+                'response': response_text,
+                'timestamp': start_time.strftime('%Y-%m-%d %H:%M:%S'),
+                'question_id': question_id
+            }
+            
+            # Store basic session info even for commands
+            question_sessions[question_id] = {
+                'question': user_message,
+                'response': response_data['response'],
+                'timestamp': start_time,
+                'logs': []
+            }
+            
+            return jsonify(response_data)
+        
+        # Store initial log state
+        initial_log_size = 0
+        if os.path.exists(config.LOG_FILE):
+            try:
+                with open(config.LOG_FILE, 'r', encoding='utf-8') as f:
+                    initial_log_size = len(f.read())
+            except:
+                pass
         
         # Get response from RAG agent
         response = rag_agent.chat(user_message)
+        end_time = datetime.now()
+        
+        # Capture logs generated for this question
+        logs = []
+        if os.path.exists(config.LOG_FILE):
+            try:
+                with open(config.LOG_FILE, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    new_content = content[initial_log_size:]
+                    if new_content.strip():
+                        # Parse JSON log entries more carefully
+                        log_entries = []
+                        
+                        # Split by the log separator line
+                        log_blocks = new_content.split('-' * 80)
+                        
+                        for block in log_blocks:
+                            block = block.strip()
+                            if block.startswith('{') and block.endswith('}'):
+                                try:
+                                    log_entry = json.loads(block)
+                                    log_entries.append(log_entry)
+                                except json.JSONDecodeError as e:
+                                    print(f"Failed to parse log entry: {e}")
+                                    # Try to extract JSON from multi-line block
+                                    lines = block.split('\n')
+                                    json_lines = []
+                                    in_json = False
+                                    brace_count = 0
+                                    
+                                    for line in lines:
+                                        if line.strip().startswith('{'):
+                                            in_json = True
+                                            brace_count = line.count('{') - line.count('}')
+                                            json_lines = [line]
+                                        elif in_json:
+                                            json_lines.append(line)
+                                            brace_count += line.count('{') - line.count('}')
+                                            if brace_count <= 0:
+                                                try:
+                                                    json_str = '\n'.join(json_lines)
+                                                    log_entry = json.loads(json_str)
+                                                    log_entries.append(log_entry)
+                                                    break
+                                                except:
+                                                    pass
+                        
+                        logs = log_entries
+            except Exception as e:
+                print(f"Error reading logs: {e}")
+                logs = [{"error": f"Failed to read logs: {str(e)}"}]
+        
+        # Store session data
+        question_sessions[question_id] = {
+            'question': user_message,
+            'response': response,
+            'timestamp': start_time,
+            'end_time': end_time,
+            'logs': logs,
+            'processing_time': (end_time - start_time).total_seconds()
+        }
         
         return jsonify({
             'response': response,
-            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            'timestamp': start_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'question_id': question_id
         })
         
     except Exception as e:
@@ -170,6 +270,25 @@ def clear_history():
             return jsonify({'message': 'History cleared successfully'})
         else:
             return jsonify({'error': 'RAG Agent not initialized'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/logs/<question_id>')
+def get_logs(question_id):
+    """Get logs for a specific question"""
+    try:
+        if question_id not in question_sessions:
+            return jsonify({'error': 'Question not found'}), 404
+        
+        session_data = question_sessions[question_id]
+        return jsonify({
+            'question_id': question_id,
+            'question': session_data['question'],
+            'response': session_data['response'],
+            'timestamp': session_data['timestamp'].strftime('%Y-%m-%d %H:%M:%S'),
+            'processing_time': session_data.get('processing_time', 0),
+            'logs': session_data['logs']
+        })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

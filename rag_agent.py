@@ -82,6 +82,7 @@ class RAGAgent:
             "找不到": ["無法找到", "看不到", "不見了", "消失", "沒有", "不存在"],
             "無法": ["不能", "不會", "無法使用", "失效", "故障"],
             "沒有": ["找不到", "不見", "消失", "不存在", "看不到"],
+            "圖片": ["圖片"],
         }
         
         print("RAG Agent initialized successfully!")
@@ -637,11 +638,22 @@ class RAGAgent:
         keyword_matches.sort(key=lambda x: x['keyword_score'], reverse=True)
         
         # 記錄搜索結果
+        keyword_results_for_log = []
+        for match in keyword_matches[:top_k]:
+            keyword_results_for_log.append({
+                'question': match['metadata']['question'],
+                'answer': match['metadata']['answer'][:100] + '...' if len(match['metadata']['answer']) > 100 else match['metadata']['answer'],
+                'keyword_score': match['keyword_score'],
+                'matched_keywords': match['matched_keywords'],
+                'source': match['metadata']['source']
+            })
+        
         self.log_operation("KEYWORD_SEARCH", "Keyword search completed", {
             "query": query,
             "extracted_keywords": keywords,
             "matches_found": len(keyword_matches),
-            "top_scores": [x['keyword_score'] for x in keyword_matches[:3]]
+            "top_scores": [x['keyword_score'] for x in keyword_matches[:3]],
+            "results": keyword_results_for_log
         })
         
         return keyword_matches[:top_k]
@@ -678,6 +690,26 @@ class RAGAgent:
         
         # Sort by broad score
         broad_matches.sort(key=lambda x: x['broad_score'], reverse=True)
+        
+        # 記錄搜索結果
+        broad_results_for_log = []
+        for match in broad_matches[:top_k]:
+            broad_results_for_log.append({
+                'question': match['metadata']['question'],
+                'answer': match['metadata']['answer'][:100] + '...' if len(match['metadata']['answer']) > 100 else match['metadata']['answer'],
+                'broad_score': match['broad_score'],
+                'char_overlap': match['broad_score'],
+                'source': match['metadata']['source']
+            })
+        
+        self.log_operation("BROAD_SEARCH", "Broad search completed", {
+            "query": query,
+            "query_chars": list(query_chars),
+            "matches_found": len(broad_matches),
+            "top_scores": [x['broad_score'] for x in broad_matches[:3]],
+            "results": broad_results_for_log
+        })
+        
         return broad_matches[:top_k]
     
     def _combine_search_results(self, keyword_results: List[Dict[str, Any]], 
@@ -718,6 +750,26 @@ class RAGAgent:
                 'similarity': combined_score
             })
         
+        # 記錄組合搜索結果
+        combined_results_for_log = []
+        for result in combined_results:
+            combined_results_for_log.append({
+                'question': result['metadata']['question'],
+                'answer': result['metadata']['answer'][:100] + '...' if len(result['metadata']['answer']) > 100 else result['metadata']['answer'],
+                'combined_score': result['similarity'],
+                'source': result['metadata']['source']
+            })
+        
+        self.log_operation("COMBINED_SEARCH", "Combined search completed", {
+            "keyword_results_count": len(keyword_results),
+            "semantic_results_count": len(top_semantic_indices),
+            "combined_results_count": len(combined_results),
+            "keyword_weight": 0.4,
+            "semantic_weight": 0.6,
+            "top_scores": [x['similarity'] for x in combined_results[:3]],
+            "results": combined_results_for_log
+        })
+        
         return combined_results
     
     def retrieve_relevant_documents(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
@@ -749,10 +801,25 @@ class RAGAgent:
             print("Query very short, using broad character-based search...")
             results = self._broad_search(query, top_k * 2)
             
+            # Prepare detailed search results for logging (same format as other search types)
+            broad_search_results = []
+            for doc in results[:top_k]:
+                broad_search_results.append({
+                    'similarity_score': float(doc['similarity']),
+                    'question': doc['metadata']['question'],
+                    'answer': doc['metadata']['answer'],
+                    'source': doc['metadata']['source']
+                })
+            
             self.log_operation("SEARCH", "Broad search completed", {
                 "query": query,
-                "results_count": len(results),
-                "search_type": "broad"
+                "expanded_query": query,  # No expansion for broad search
+                "top_k": top_k,
+                "total_documents": len(self.documents),
+                "search_type": "broad",
+                "keyword_matches": 0,  # No keyword matching in broad search
+                "max_semantic_score": float(results[0]['similarity']) if results else 0.0,
+                "results": broad_search_results
             })
             return results[:top_k]
         
@@ -774,6 +841,26 @@ class RAGAgent:
         elif keyword_results and len(keyword_results) >= top_k:
             combined_results = keyword_results[:top_k]
             search_type = "keyword_priority"
+            
+            # 記錄關鍵詞優先搜索結果
+            keyword_priority_results_for_log = []
+            for result in combined_results:
+                keyword_priority_results_for_log.append({
+                    'question': result['metadata']['question'],
+                    'answer': result['metadata']['answer'][:100] + '...' if len(result['metadata']['answer']) > 100 else result['metadata']['answer'],
+                    'keyword_score': result['keyword_score'],
+                    'matched_keywords': result.get('matched_keywords', []),
+                    'source': result['metadata']['source']
+                })
+            
+            self.log_operation("KEYWORD_PRIORITY_SEARCH", "Keyword priority search completed", {
+                "query": query,
+                "expanded_query": expanded_query,
+                "keyword_results_count": len(keyword_results),
+                "prioritized_results_count": len(combined_results),
+                "top_scores": [x['keyword_score'] for x in combined_results[:3]],
+                "results": keyword_priority_results_for_log
+            })
         # Step 7: Otherwise, use pure semantic search
         else:
             top_indices = np.argsort(similarities)[::-1][:top_k]
@@ -785,6 +872,24 @@ class RAGAgent:
                     'similarity': similarities[idx]
                 })
             search_type = "semantic_only"
+            
+            # 記錄純語義搜索結果
+            semantic_results_for_log = []
+            for result in combined_results:
+                semantic_results_for_log.append({
+                    'question': result['metadata']['question'],
+                    'answer': result['metadata']['answer'][:100] + '...' if len(result['metadata']['answer']) > 100 else result['metadata']['answer'],
+                    'semantic_score': result['similarity'],
+                    'source': result['metadata']['source']
+                })
+            
+            self.log_operation("SEMANTIC_SEARCH", "Pure semantic search completed", {
+                "query": query,
+                "expanded_query": expanded_query,
+                "semantic_results_count": len(combined_results),
+                "top_scores": [float(x['similarity']) for x in combined_results[:3]],
+                "results": semantic_results_for_log
+            })
         
         # Prepare search results for logging
         search_results = []
