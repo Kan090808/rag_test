@@ -227,6 +227,20 @@ def chat():
                 print(f"Error reading logs: {e}")
                 logs = [{"error": f"Failed to read logs: {str(e)}"}]
         
+        # Calculate total token usage for this question
+        total_token_usage = {
+            'prompt_tokens': 0,
+            'completion_tokens': 0,
+            'total_tokens': 0
+        }
+        
+        for log in logs:
+            if log.get('details', {}).get('token_usage'):
+                token_usage = log['details']['token_usage']
+                total_token_usage['prompt_tokens'] += token_usage.get('prompt_tokens', 0)
+                total_token_usage['completion_tokens'] += token_usage.get('completion_tokens', 0)
+                total_token_usage['total_tokens'] += token_usage.get('total_tokens', 0)
+        
         # Store session data
         question_sessions[question_id] = {
             'question': user_message,
@@ -234,7 +248,8 @@ def chat():
             'timestamp': start_time,
             'end_time': end_time,
             'logs': logs,
-            'processing_time': (end_time - start_time).total_seconds()
+            'processing_time': (end_time - start_time).total_seconds(),
+            'total_token_usage': total_token_usage if total_token_usage['total_tokens'] > 0 else None
         }
         
         return jsonify({
@@ -281,14 +296,20 @@ def get_logs(question_id):
             return jsonify({'error': 'Question not found'}), 404
         
         session_data = question_sessions[question_id]
-        return jsonify({
+        response_data = {
             'question_id': question_id,
             'question': session_data['question'],
             'response': session_data['response'],
             'timestamp': session_data['timestamp'].strftime('%Y-%m-%d %H:%M:%S'),
             'processing_time': session_data.get('processing_time', 0),
             'logs': session_data['logs']
-        })
+        }
+        
+        # Add token usage if available
+        if session_data.get('total_token_usage'):
+            response_data['total_token_usage'] = session_data['total_token_usage']
+        
+        return jsonify(response_data)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

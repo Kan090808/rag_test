@@ -193,6 +193,8 @@
         .log-type.SEARCH { background: #28a745; }
         .log-type.CHAT { background: #007bff; }
         .log-type.ANSWER { background: #ffc107; color: #000; }
+        .log-type.RESPONSE { background: #6f42c1; }
+        .log-type.SUMMARY { background: #20c997; }
         .log-type.ERROR { background: #dc3545; }
         .log-type.SYSTEM { background: #6c757d; }
         .log-type.QUERY_EXPANSION { background: #17a2b8; }
@@ -699,18 +701,51 @@
         function displayLogsModal(logData) {
             const logsContent = document.getElementById('logsContent');
             
+            // Use total token usage from session data if available, otherwise calculate from logs
+            let totalTokenUsage = logData.total_token_usage || {
+                prompt_tokens: 0,
+                completion_tokens: 0,
+                total_tokens: 0
+            };
+            
+            // If no session token data, calculate from logs
+            if (!logData.total_token_usage && logData.logs && logData.logs.length > 0) {
+                logData.logs.forEach(log => {
+                    if (log.details && log.details.token_usage) {
+                        totalTokenUsage.prompt_tokens += log.details.token_usage.prompt_tokens || 0;
+                        totalTokenUsage.completion_tokens += log.details.token_usage.completion_tokens || 0;
+                        totalTokenUsage.total_tokens += log.details.token_usage.total_tokens || 0;
+                    }
+                });
+            }
+            
             // Create header info
             const headerInfo = document.createElement('div');
             headerInfo.style.marginBottom = '20px';
             headerInfo.style.padding = '15px';
             headerInfo.style.backgroundColor = '#e9ecef';
             headerInfo.style.borderRadius = '8px';
-            headerInfo.innerHTML = `
+            
+            let headerHtml = `
                 <div style="margin-bottom: 8px;"><strong>問題:</strong> ${logData.question}</div>
                 <div style="margin-bottom: 8px;"><strong>時間:</strong> ${logData.timestamp}</div>
                 <div style="margin-bottom: 8px;"><strong>處理時間:</strong> ${logData.processing_time ? logData.processing_time.toFixed(2) + ' 秒' : 'N/A'}</div>
-                <div><strong>回應預覽:</strong> ${logData.response.substring(0, 150)}${logData.response.length > 150 ? '...' : ''}</div>
+                <div style="margin-bottom: 8px;"><strong>回應預覽:</strong> ${logData.response.substring(0, 150)}${logData.response.length > 150 ? '...' : ''}</div>
             `;
+            
+            // Add total token usage if any tokens were used
+            if (totalTokenUsage.total_tokens > 0) {
+                headerHtml += `
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ced4da;">
+                    <strong>🔢 總 Token 使用量:</strong><br>
+                    <span style="margin-left: 10px;">📥 輸入: ${totalTokenUsage.prompt_tokens} tokens</span><br>
+                    <span style="margin-left: 10px;">📤 輸出: ${totalTokenUsage.completion_tokens} tokens</span><br>
+                    <span style="margin-left: 10px;">🔄 總計: ${totalTokenUsage.total_tokens} tokens</span>
+                </div>
+                `;
+            }
+            
+            headerInfo.innerHTML = headerHtml;
             
             logsContent.innerHTML = '';
             logsContent.appendChild(headerInfo);
@@ -822,6 +857,29 @@
                             }
                             if (log.details.final_query) {
                                 detailsStr += `✅ 最終查詢: ${log.details.final_query}\n`;
+                            }
+                        } else if (log.type === 'RESPONSE' || log.type === 'SUMMARY') {
+                            if (log.details.query) {
+                                detailsStr += `🔍 查詢: ${log.details.query}\n`;
+                            }
+                            if (log.details.model) {
+                                detailsStr += `🤖 模型: ${log.details.model}\n`;
+                            }
+                            if (log.details.response_length) {
+                                detailsStr += `📝 回應長度: ${log.details.response_length} 字符\n`;
+                            }
+                            if (log.details.context_docs_count !== undefined) {
+                                detailsStr += `📚 使用文檔: ${log.details.context_docs_count} 個\n`;
+                            }
+                            if (log.details.conversation_history_length !== undefined) {
+                                detailsStr += `💬 對話歷史: ${log.details.conversation_history_length} 輪\n`;
+                            }
+                            // Display token usage information
+                            if (log.details.token_usage) {
+                                detailsStr += `\n🔢 Token 使用統計:\n`;
+                                detailsStr += `   📥 輸入 Tokens: ${log.details.token_usage.prompt_tokens || 0}\n`;
+                                detailsStr += `   📤 輸出 Tokens: ${log.details.token_usage.completion_tokens || 0}\n`;
+                                detailsStr += `   🔄 總計 Tokens: ${log.details.token_usage.total_tokens || 0}\n`;
                             }
                         } else {
                             detailsStr = JSON.stringify(log.details, null, 2);

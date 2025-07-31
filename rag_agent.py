@@ -387,9 +387,19 @@ class RAGAgent:
             result = response.json()
             summary = result['choices'][0]['message']['content']
             
+            # Extract token usage information if available
+            token_usage = {}
+            if 'usage' in result:
+                token_usage = {
+                    'prompt_tokens': result['usage'].get('prompt_tokens', 0),
+                    'completion_tokens': result['usage'].get('completion_tokens', 0),
+                    'total_tokens': result['usage'].get('total_tokens', 0)
+                }
+            
             self.log_operation("SUMMARY", "Created conversation summary", {
                 "conversations_count": len(conversations),
-                "summary_length": len(summary)
+                "summary_length": len(summary),
+                "token_usage": token_usage
             })
             
             return summary
@@ -975,6 +985,15 @@ class RAGAgent:
             result = response.json()
             generated_response = result['choices'][0]['message']['content']
             
+            # Extract token usage information if available
+            token_usage = {}
+            if 'usage' in result:
+                token_usage = {
+                    'prompt_tokens': result['usage'].get('prompt_tokens', 0),
+                    'completion_tokens': result['usage'].get('completion_tokens', 0),
+                    'total_tokens': result['usage'].get('total_tokens', 0)
+                }
+            
             # Log the response generation
             self.log_operation("RESPONSE", "Generated AI response with conversation context", {
                 "query": query,
@@ -984,7 +1003,8 @@ class RAGAgent:
                 "response_length": len(generated_response),
                 "context_docs_count": len(context_docs),
                 "has_conversation_history": bool(conversation_context),
-                "conversation_history_length": len(self.conversation_history)
+                "conversation_history_length": len(self.conversation_history),
+                "token_usage": token_usage
             })
             
             return generated_response
