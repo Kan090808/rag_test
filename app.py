@@ -276,6 +276,18 @@ def status():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/models')
+def get_available_models():
+    """Get list of available models"""
+    try:
+        return jsonify({
+            'available_models': config.AVAILABLE_MODELS,
+            'current_model': config.MODEL_NAME,
+            'default_models': config.DEFAULT_MODELS
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/clear_history', methods=['POST'])
 def clear_history():
     """Clear conversation history"""
@@ -323,15 +335,12 @@ def change_model():
         if not new_model:
             return jsonify({'error': 'Model name is required'}), 400
         
-        # Validate model name
-        allowed_models = [
-            'anthropic/claude-3.5-haiku',
-            'openai/gpt-4.1',
-            'openai/gpt-4.1-mini'
-        ]
-        
-        if new_model not in allowed_models:
-            return jsonify({'error': f'Model not allowed. Available models: {", ".join(allowed_models)}'}), 400
+        # Validate model name using config
+        if new_model not in config.AVAILABLE_MODELS:
+            available_list = list(config.AVAILABLE_MODELS.keys())
+            return jsonify({
+                'error': f'Model not available. Available models: {", ".join(available_list)}'
+            }), 400
         
         if not rag_agent:
             return jsonify({'error': 'RAG Agent not initialized'}), 500
@@ -343,8 +352,9 @@ def change_model():
             # Update the config module's MODEL_NAME for consistency
             config.MODEL_NAME = new_model
             
+            model_info = config.AVAILABLE_MODELS[new_model]
             return jsonify({
-                'message': f'Model changed to {new_model} successfully',
+                'message': f'Model changed to {model_info["display_name"]} successfully',
                 'new_model': new_model
             })
         else:

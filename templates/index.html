@@ -317,11 +317,24 @@
             background: white;
             cursor: pointer;
             transition: border-color 0.3s;
+            min-width: 200px;
         }
 
         .model-select:focus {
             outline: none;
             border-color: #007bff;
+        }
+
+        .model-select optgroup {
+            font-weight: bold;
+            color: #666;
+            padding: 4px 0;
+        }
+
+        .model-select option {
+            font-weight: normal;
+            color: #333;
+            padding: 2px 4px;
         }
 
         .loading {
@@ -418,9 +431,7 @@
                 <div class="model-selector">
                     <label for="modelSelect">模型:</label>
                     <select id="modelSelect" class="model-select" onchange="changeModel()">
-                        <option value="anthropic/claude-3.5-haiku">Claude 3.5 Haiku</option>
-                        <option value="openai/gpt-4.1">GPT-4.1</option>
-                        <option value="openai/gpt-4.1-mini" selected>GPT-4.1 Mini</option>
+                        <option value="">載入中...</option>
                     </select>
                 </div>
             </div>
@@ -468,6 +479,7 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             messageInput.focus();
+            loadAvailableModels();
             refreshStatus();
         });
 
@@ -485,6 +497,71 @@
         });
 
         // Functions
+        async function loadAvailableModels() {
+            try {
+                const response = await fetch('/models');
+                const data = await response.json();
+
+                if (response.ok) {
+                    const modelSelect = document.getElementById('modelSelect');
+                    modelSelect.innerHTML = ''; // Clear loading option
+
+                    // Group models by provider
+                    const modelsByProvider = {};
+                    Object.entries(data.available_models).forEach(([modelId, modelInfo]) => {
+                        if (!modelsByProvider[modelInfo.provider]) {
+                            modelsByProvider[modelInfo.provider] = [];
+                        }
+                        modelsByProvider[modelInfo.provider].push({
+                            id: modelId,
+                            ...modelInfo
+                        });
+                    });
+
+                    // Add options grouped by provider
+                    Object.entries(modelsByProvider).forEach(([provider, models]) => {
+                        const optgroup = document.createElement('optgroup');
+                        optgroup.label = provider;
+                        
+                        models.forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model.id;
+                            option.textContent = `${model.display_name} - ${model.description}`;
+                            
+                            // Mark current model as selected
+                            if (model.id === data.current_model) {
+                                option.selected = true;
+                            }
+                            
+                            optgroup.appendChild(option);
+                        });
+                        
+                        modelSelect.appendChild(optgroup);
+                    });
+
+                    console.log('Available models loaded successfully');
+                } else {
+                    console.error('Failed to load available models:', data.error);
+                    // Fallback to basic options
+                    const modelSelect = document.getElementById('modelSelect');
+                    modelSelect.innerHTML = `
+                        <option value="anthropic/claude-3.5-haiku">Claude 3.5 Haiku</option>
+                        <option value="openai/gpt-4o">GPT-4o</option>
+                        <option value="openai/gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading available models:', error);
+                // Fallback to basic options
+                const modelSelect = document.getElementById('modelSelect');
+                modelSelect.innerHTML = `
+                    <option value="anthropic/claude-3.5-haiku">Claude 3.5 Haiku</option>
+                    <option value="openai/gpt-4o">GPT-4o</option>
+                    <option value="openai/gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                `;
+            }
+        }
+
         async function sendMessage() {
             const message = messageInput.value.trim();
             if (!message || isLoading) return;
@@ -674,12 +751,27 @@
         }
 
         function getModelDisplayName(modelName) {
-            const modelNames = {
+            // Try to get display name from the model selector options
+            const modelSelect = document.getElementById('modelSelect');
+            const option = modelSelect.querySelector(`option[value="${modelName}"]`);
+            if (option) {
+                return option.textContent.split(' - ')[0]; // Get just the model name part before description
+            }
+            
+            // Fallback to manual mapping for common models
+            const fallbackNames = {
                 'anthropic/claude-3.5-haiku': 'Claude 3.5 Haiku',
-                'openai/gpt-4.1': 'GPT-4.1',
-                'openai/gpt-4.1-mini': 'GPT-4.1 Mini'
+                'anthropic/claude-3.5-sonnet': 'Claude 3.5 Sonnet',
+                'openai/gpt-4o': 'GPT-4o',
+                'openai/gpt-4o-mini': 'GPT-4o Mini',
+                'openai/gpt-4-turbo': 'GPT-4 Turbo',
+                'openai/gpt-3.5-turbo': 'GPT-3.5 Turbo',
+                'google/gemini-pro': 'Gemini Pro',
+                'meta-llama/llama-3.1-70b-instruct': 'Llama 3.1 70B',
+                'meta-llama/llama-3.1-8b-instruct': 'Llama 3.1 8B',
+                'mistralai/mistral-7b-instruct': 'Mistral 7B Instruct'
             };
-            return modelNames[modelName] || modelName;
+            return fallbackNames[modelName] || modelName;
         }
 
         async function showLogs(questionId) {

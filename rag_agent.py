@@ -450,7 +450,7 @@ class RAGAgent:
     
     def expand_query(self, query: str) -> str:
         """
-        Intelligent query expansion with negation handling
+        改进的查询扩展策略 - 更精准，减少噪音
         
         Args:
             query: Original user query
@@ -461,79 +461,62 @@ class RAGAgent:
         expanded_terms = set()
         query_lower = query.lower()
         
-        # 檢查是否是否定查詢（如"找不到時刻"）
-        is_negation_query = any(neg_word in query_lower for neg_word in 
-                               ['找不到', '看不到', '沒有', '不見', '無法', '不能', '消失'])
+        # 限制扩展词汇数量
+        max_expansion_terms = getattr(config, 'QUERY_EXPANSION_LIMIT', 3)
         
-        # 首先嘗試完整匹配
+        # 检查是否是否定查询
+        is_negation_query = any(neg_word in query_lower for neg_word in 
+                               ['找不到', '看不到', '没有', '不见', '无法', '不能', '消失'])
+        
+        # 优先精确匹配
         for key, terms in self.query_expansions.items():
             if key in query_lower:
-                expanded_terms.update(terms)
-                self.log_operation("QUERY_EXPANSION", "Exact match expansion", {
+                # 只取前N个最相关的扩展词
+                expanded_terms.update(terms[:max_expansion_terms])
+                self.log_operation("QUERY_EXPANSION", "Precise expansion applied", {
                     "matched_key": key,
-                    "expanded_terms": terms
+                    "expanded_terms": terms[:max_expansion_terms],
+                    "query": query
                 })
+                break  # 找到精确匹配就停止
         
-        # 對於否定查詢，特別處理
+        # 对于否定查询的特殊处理
         if is_negation_query and not expanded_terms:
-            # 提取被否定的主要對象
-            for neg_word in ['找不到', '看不到', '沒有', '不見']:
+            for neg_word in ['找不到', '看不到', '没有', '不见']:
                 if neg_word in query_lower:
-                    # 獲取否定詞後面的內容
                     after_neg = query_lower.split(neg_word)[-1].strip()
                     if after_neg:
-                        # 檢查是否有對應的擴展
                         for key, terms in self.query_expansions.items():
                             if after_neg in key or key in after_neg:
-                                expanded_terms.update(terms)
-                                # 也添加原始關鍵詞
+                                expanded_terms.update(terms[:max_expansion_terms])
                                 expanded_terms.add(after_neg)
                                 self.log_operation("QUERY_EXPANSION", "Negation-aware expansion", {
                                     "negation_word": neg_word,
                                     "extracted_object": after_neg,
-                                    "matched_key": key,
-                                    "expanded_terms": terms
+                                    "expanded_terms": terms[:max_expansion_terms]
                                 })
                                 break
+                    break
         
-        # 如果還沒找到擴展，嘗試部分匹配
-        if not expanded_terms:
-            for key, terms in self.query_expansions.items():
-                # 檢查查詢中是否包含key的任何字符
-                if any(char in query_lower for char in key):
-                    # 計算相似度
-                    similarity = len(set(query_lower) & set(key)) / len(set(key))
-                    if similarity > 0.3:  # 30%以上字符相似度
-                        expanded_terms.update(terms[:3])  # 只取前3個同義詞
-                        self.log_operation("QUERY_EXPANSION", "Partial match expansion", {
-                            "matched_key": key,
-                            "similarity": similarity,
-                            "expanded_terms": terms[:3]
-                        })
-        
-        # 對於很短的查詢，更寬泛地擴展
-        if len(query.strip()) <= 3 and not expanded_terms:
+        # 如果还没有扩展且查询很短，进行有限的部分匹配
+        if not expanded_terms and len(query.strip()) <= 3:
             for key, terms in self.query_expansions.items():
                 if any(char in key for char in query_lower):
-                    expanded_terms.update(terms[:2])  # 只取前2個同義詞
-                    
+                    expanded_terms.update(terms[:2])  # 只取前2个
+                    break
+        
         if expanded_terms:
-            # 移除原查詢詞避免重複
-            expanded_terms.discard(query_lower)
-            expanded_query = query + " " + " ".join(expanded_terms)
+            expanded_terms.discard(query_lower)  # 移除原查询避免重复
+            expanded_query = query + " " + " ".join(list(expanded_terms)[:max_expansion_terms])
             
-            self.log_operation("QUERY_EXPANSION", "Query expansion completed", {
+            self.log_operation("QUERY_EXPANSION", "Limited expansion completed", {
                 "original": query,
                 "expanded": expanded_query,
-                "added_terms": list(expanded_terms),
-                "is_negation_query": is_negation_query
+                "terms_added": len(expanded_terms),
+                "max_allowed": max_expansion_terms
             })
             return expanded_query
         
-        self.log_operation("QUERY_EXPANSION", "No expansion applied", {
-            "original": query,
-            "reason": "No matching expansion rules found"
-        })
         return query
     
     def _extract_keywords(self, query: str) -> List[str]:
@@ -725,7 +708,7 @@ class RAGAgent:
     def _combine_search_results(self, keyword_results: List[Dict[str, Any]], 
                                semantic_similarities: np.ndarray, top_k: int) -> List[Dict[str, Any]]:
         """
-        Combine keyword and semantic search results
+        智能组合搜索结果 - 使用优化的权重配置
         
         Args:
             keyword_results: Results from keyword search
@@ -735,47 +718,66 @@ class RAGAgent:
         Returns:
             Combined and ranked results
         """
-        # Get semantic search results
-        top_semantic_indices = np.argsort(semantic_similarities)[::-1][:top_k * 2]
+        # 获取权重配置
+        keyword_weight = getattr(config, 'KEYWORD_WEIGHT', 0.6)
+        semantic_weight = getattr(config, 'SEMANTIC_WEIGHT', 0.4)
+        semantic_threshold = getattr(config, 'SEMANTIC_THRESHOLD', 0.15)
         
-        # Create a score dictionary for all documents
+        # 获取语义搜索结果，只考虑超过阈值的结果
+        semantic_indices = []
+        for idx, score in enumerate(semantic_similarities):
+            if score >= semantic_threshold:
+                semantic_indices.append((idx, score))
+        semantic_indices.sort(key=lambda x: x[1], reverse=True)
+        
+        # 创建文档评分字典
         doc_scores = {}
         
-        # Add keyword scores (weight: 0.4)
+        # 添加关键词评分 (优先权重)
         for result in keyword_results:
             idx = result['index']
-            doc_scores[idx] = doc_scores.get(idx, 0) + result['keyword_score'] * 0.4
+            doc_scores[idx] = doc_scores.get(idx, 0) + result['keyword_score'] * keyword_weight
         
-        # Add semantic scores (weight: 0.6)
-        for idx in top_semantic_indices:
-            semantic_score = semantic_similarities[idx]
-            doc_scores[idx] = doc_scores.get(idx, 0) + semantic_score * 0.6
+        # 添加语义评分 (补充权重)，只有超过阈值的才参与
+        for idx, semantic_score in semantic_indices[:top_k * 2]:
+            doc_scores[idx] = doc_scores.get(idx, 0) + semantic_score * semantic_weight
         
-        # Create combined results
+        # 创建组合结果
         combined_results = []
-        for idx, combined_score in sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)[:top_k]:
+        sorted_docs = sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)[:top_k]
+        
+        for idx, combined_score in sorted_docs:
+            # 检查这个文档是否有关键词匹配
+            keyword_match = any(r['index'] == idx for r in keyword_results)
+            semantic_score = semantic_similarities[idx] if idx < len(semantic_similarities) else 0.0
+            
             combined_results.append({
                 'content': self.documents[idx],
                 'metadata': self.metadata[idx],
-                'similarity': combined_score
+                'similarity': combined_score,
+                'has_keyword_match': keyword_match,
+                'semantic_score': semantic_score
             })
         
-        # 記錄組合搜索結果
+        # 记录组合搜索结果
         combined_results_for_log = []
         for result in combined_results:
             combined_results_for_log.append({
                 'question': result['metadata']['question'],
                 'answer': result['metadata']['answer'][:100] + '...' if len(result['metadata']['answer']) > 100 else result['metadata']['answer'],
                 'combined_score': result['similarity'],
+                'semantic_score': result['semantic_score'],
+                'has_keyword_match': result['has_keyword_match'],
                 'source': result['metadata']['source']
             })
         
-        self.log_operation("COMBINED_SEARCH", "Combined search completed", {
+        self.log_operation("COMBINED_SEARCH", "Optimized combined search completed", {
             "keyword_results_count": len(keyword_results),
-            "semantic_results_count": len(top_semantic_indices),
+            "semantic_results_above_threshold": len(semantic_indices),
             "combined_results_count": len(combined_results),
-            "keyword_weight": 0.4,
-            "semantic_weight": 0.6,
+            "keyword_weight": keyword_weight,
+            "semantic_weight": semantic_weight,
+            "semantic_threshold": semantic_threshold,
             "top_scores": [x['similarity'] for x in combined_results[:3]],
             "results": combined_results_for_log
         })
